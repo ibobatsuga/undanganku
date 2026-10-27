@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pernikahan Dewi &amp; Angga — Undanganku.id</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Prata&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/template-core.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --theme-bg: #FFF8F4;
+      --theme-card-bg: #FFFFFF;
+      --theme-card-border: #F3DDD3;
+      --theme-accent: #B25844;
+      --theme-accent-light: #FBECE7;
+      --theme-gold: #C68962;
+      --font-title: 'Prata', serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+    body { background-color: #381E17; }
+    .welcome-screen {
+      background-image: url('../../assets/templates/template-dewi-angga.jpg');
+    }
+    .welcome-badge {
+      background: var(--theme-gold);
+      color: #FFFFFF;
+      font-family: var(--font-title);
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+    .welcome-couple-title {
+      font-family: var(--font-title);
+      font-size: 34px;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .btn-open-invite {
+      background: linear-gradient(135deg, #B25844 0%, #8C3E2D 100%);
+      color: #FFFFFF;
+    }
+    .couple-name {
+      font-family: var(--font-title);
+      color: var(--theme-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Welcome Screen (Envelope Opening) -->
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-content-top">
+        <span class="welcome-badge">THE WEDDING OF</span>
+        <h1 class="welcome-couple-title">Dewi &amp; Angga</h1>
+        <p class="welcome-date" style="color: #FBECE7;">Jumat, 30 Oktober 2026</p>
+      </div>
+
+      <div class="welcome-content-middle">
+        <div class="guest-card">
+          <p class="guest-card-label">Yth. Bapak/Ibu/Sahabat:</p>
+          <h3 id="guestNameText" class="guest-card-name">Tamu Undangan Terhormat</h3>
+          <button onclick="openInvitation()" class="btn-open-invite">
+            <span>💌</span> Buka Undangan
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome-content-bottom">
+        <p style="font-size: 11.5px; color: rgba(255,255,255,0.85);">Undangan Digital Minimalist Peach • Undanganku.id</p>
+      </div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="main-content" style="background: var(--theme-bg);">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <img src="../../assets/templates/template-dewi-angga.jpg" alt="Dewi & Angga" style="object-position: center 25%;">
+        <div class="hero-banner-overlay"></div>
+      </div>
+
+      <!-- Quote -->
+      <section class="section-padding" style="text-align: center; padding-top: 10px;">
+        <p style="font-family: var(--font-serif); font-size: 16px; color: var(--theme-accent); margin-bottom: 8px; font-weight: 600;">Together in Love &amp; Harmony</p>
+        <p style="font-size: 13.5px; color: #4B5563; line-height: 1.6; margin-bottom: 20px;">
+          "Cinta bukanlah tentang saling menatap satu sama lain, melainkan menatap bersama ke arah yang sama menuju masa depan."
+        </p>
+        
+        <!-- Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="cdDays" class="countdown-num">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdHours" class="countdown-num">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdMins" class="countdown-num">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdSecs" class="countdown-num">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mempelai -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Mempelai Berbahagia</h3>
+        <p class="section-subtitle">Dengan rasa syukur ke hadirat Tuhan Yang Maha Esa, kami mempersembahkan ikrar suci:</p>
+
+        <!-- Groom -->
+        <div class="couple-card">
+          <h4 class="couple-name">Angga Pratama, M.B.A.</h4>
+          <p class="couple-parents">Putra kedua dari Bapak Drs. H. Suryono &amp; Ibu Hj. Endang Sulastri</p>
+        </div>
+
+        <div style="font-size: 26px; font-weight: 700; color: var(--theme-gold); margin: -10px 0 10px; text-align: center;">&amp;</div>
+
+        <!-- Bride -->
+        <div class="couple-card">
+          <h4 class="couple-name">Dewi Sartika, S.E.</h4>
+          <p class="couple-parents">Putri pertama dari Bapak Ir. H. Bambang Subagyo &amp; Ibu Hj. Sri Wahyuni</p>
+        </div>
+      </section>
+
+      <!-- Jadwal Acara -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Rangkaian Acara</h3>
+        <p class="section-subtitle">Merupakan suatu kehormatan bagi kami atas kehadiran Anda pada:</p>
+
+        <!-- Akad Nikah -->
+        <div class="event-card">
+          <span class="event-badge">Akad Nikah</span>
+          <h4 class="event-title">Vanilla Sky Lounge, Artotel Suites Bianti</h4>
+          <p class="event-time">⏰ Jumat, 30 Oktober 2026 • 08:30 WIB</p>
+          <p class="event-location">Jl. Urip Sumoharjo No. 37, Klitren, Gondokusuman, Kota Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">📍 Petunjuk Lokasi Google Maps</a>
+        </div>
+
+        <!-- Resepsi -->
+        <div class="event-card">
+          <span class="event-badge">Resepsi Pernikahan</span>
+          <h4 class="event-title">Grand Ballroom Artotel Suites Bianti</h4>
+          <p class="event-time">⏰ Jumat, 30 Oktober 2026 • 19:00 - 21:30 WIB</p>
+          <p class="event-location">Jl. Urip Sumoharjo No. 37, Klitren, Gondokusuman, Kota Yogyakarta</p>
+          <a href="https://calendar.google.com" target="_blank" class="btn-action btn-cal">📅 Simpan ke Google Calendar</a>
+        </div>
+      </section>
+
+      <!-- Amplop Digital & Kado -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Tanda Kasih Digital</h3>
+        <p class="section-subtitle">Doa restu Anda adalah anugerah terindah. Bagi yang ingin mengirimkan kado pernikahan dalam bentuk cashless:</p>
+
+        <!-- BRI -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank BRI</div>
+            <div class="wallet-acc-num">002101083920501</div>
+            <div class="wallet-holder">a.n Dewi Sartika</div>
+          </div>
+          <button onclick="copyText('002101083920501', 'BRI')" class="btn-copy">Salin</button>
+        </div>
+
+        <!-- Mandiri -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Mandiri</div>
+            <div class="wallet-acc-num">1370014829301</div>
+            <div class="wallet-holder">a.n Angga Pratama</div>
+          </div>
+          <button onclick="copyText('1370014829301', 'Mandiri')" class="btn-copy">Salin</button>
+        </div>
+      </section>
+
+      <!-- RSVP & Ucapan -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Buku Tamu &amp; Ucapan</h3>
+        <p class="section-subtitle">Tinggalkan pesan manis dan konfirmasi kehadiran Anda:</p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label class="form-label" for="rsvpName">Nama Lengkap</label>
+              <input type="text" id="rsvpName" class="form-control" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpStatus">Konfirmasi Kehadiran</label>
+              <select id="rsvpStatus" class="form-control">
+                <option value="hadir">Pasti Hadir</option>
+                <option value="ragu">Masih Ragu / Mungkin Hadir</option>
+                <option value="tidak">Maaf, Tidak Bisa Hadir</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpMessage">Ucapan &amp; Doa</label>
+              <textarea id="rsvpMessage" rows="3" class="form-control" placeholder="Tuliskan ucapan dan doa hangat Anda..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit-rsvp" style="background: var(--theme-accent);">Kirim Ucapan</button>
+          </form>
+        </div>
+
+        <!-- List Doa Restu -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: #1E293B;">Doa Restu Tamu</h4>
+          <span style="font-size: 12px; color: #64748B;"><span id="wishesCount">0</span> Ucapan</span>
+        </div>
+        <div id="wishesList" class="wishes-stream"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="template-footer">
+        <p style="margin-bottom: 6px;">Undangan Digital dibuat dengan ❤️ menggunakan platform</p>
+        <p><a href="/" target="_blank">Undanganku.id</a> — Website Undangan Pernikahan Masa Kini</p>
+      </footer>
+    </main>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audioToggle" class="audio-toggle-btn" title="Nyalakan/Matikan Musik">🎵</button>
+
+  </div>
+
+  <script src="../assets/template-core.js"></script>
+  <script>
+    initAudio('../assets/music/pure-love-304010.mp3');
+    initCountdown('2026-10-30 08:30:00');
+    
+    initRsvpSystem('dewi', [
+      {
+        name: 'Anindya & Randy',
+        status: 'hadir',
+        message: 'Selamat Dewi & Mas Angga! Senang banget melihat kalian akhirnya melangkah ke pelaminan. Semoga langgeng dan bahagia selalu!',
+        time: '2 jam yang lalu',
+        likes: 15
+      },
+      {
+        name: 'Rizki Aditya, M.M.',
+        status: 'hadir',
+        message: 'Congrats bro Angga! Mantap akhirnya sold out juga. Lancar sampai hari H ya!',
+        time: '4 jam yang lalu',
+        likes: 7
+      },
+      {
+        name: 'Fani Rahmawati',
+        status: 'hadir',
+        message: 'Happy wedding Dewi sayang! Cantik banget temanku satu ini, semoga menjadi keluarga yang bahagia selamanya.',
+        time: '6 jam yang lalu',
+        likes: 10
+      }
+    ]);
+  </script>
+</body>
+</html>

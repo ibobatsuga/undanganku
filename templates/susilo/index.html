@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pawiwahan Susilo &amp; Dewi — Undanganku.id</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/template-core.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --theme-bg: #FAF6F0;
+      --theme-card-bg: #FFFFFF;
+      --theme-card-border: #E8DCCB;
+      --theme-accent: #6E3F19;
+      --theme-accent-light: #F7EFE4;
+      --theme-gold: #C28B2C;
+      --font-title: 'Playfair Display', serif;
+      --font-ornate: 'Cinzel', serif;
+    }
+    body { background-color: #2D1A0D; }
+    .welcome-screen {
+      background-image: url('../../assets/templates/template-susilo-dewi.png');
+    }
+    .welcome-badge {
+      background: var(--theme-gold);
+      color: #FFFFFF;
+      font-family: var(--font-ornate);
+    }
+    .welcome-couple-title {
+      font-family: var(--font-title);
+      color: #FFFFFF;
+    }
+    .btn-open-invite {
+      background: linear-gradient(135deg, #6E3F19 0%, #442207 100%);
+      color: #FFFFFF;
+    }
+    .couple-name {
+      font-family: var(--font-title);
+      color: var(--theme-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Welcome Screen (Envelope Opening) -->
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-content-top">
+        <span class="welcome-badge">Pawiwahan Adat Jawa</span>
+        <h1 class="welcome-couple-title">Susilo &amp; Dewi</h1>
+        <p class="welcome-date" style="color: #E2E8F0;">Rabu, 25 Februari 2026</p>
+      </div>
+
+      <div class="welcome-content-middle">
+        <div class="guest-card">
+          <p class="guest-card-label">Katur dhumateng Panjenenganipun:</p>
+          <h3 id="guestNameText" class="guest-card-name">Tamu Undangan Terhormat</h3>
+          <button onclick="openInvitation()" class="btn-open-invite">
+            <span>✉️</span> Buka Serat Ulem
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome-content-bottom">
+        <p style="font-size: 11.5px; color: rgba(255,255,255,0.75);">Undangan Digital Adat Jawa • Undanganku.id</p>
+      </div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="main-content" style="background: var(--theme-bg);">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <img src="../../assets/templates/template-susilo-dewi.png" alt="Susilo & Dewi" style="object-position: center 20%;">
+        <div class="hero-banner-overlay"></div>
+      </div>
+
+      <!-- Salam Pembuka -->
+      <section class="section-padding" style="text-align: center; padding-top: 10px;">
+        <h2 style="font-family: var(--font-title); font-size: 22px; color: var(--theme-accent); margin-bottom: 12px;">Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+        <p style="font-size: 13px; color: #4B5563; line-height: 1.6; margin-bottom: 20px;">
+          Nyuwun lumunturing sih samodra pangaksami, kanthi linambaran sih wilasaning Gusti Ingkang Maha Agung, mugi kepareng rawuh wonten ing pawiwahan dhaup suci putra-putri kawula:
+        </p>
+        
+        <!-- Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="cdDays" class="countdown-num">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdHours" class="countdown-num">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdMins" class="countdown-num">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdSecs" class="countdown-num">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mempelai -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Sang Penganten</h3>
+        <p class="section-subtitle">Dha-dhaup sucinipun putra-putri kekalih:</p>
+
+        <!-- Pria -->
+        <div class="couple-card">
+          <h4 class="couple-name">Susilo Hadi Prabowo</h4>
+          <p class="couple-parents">Putra kakung pambayun saking Panjenenganipun Bapak Raden Mas Soetomo &amp; Ibu Raden Ayu Sulastri</p>
+        </div>
+
+        <div style="font-size: 26px; font-weight: 700; color: var(--theme-gold); margin: -10px 0 10px; text-align: center;">kaliyan</div>
+
+        <!-- Wanita -->
+        <div class="couple-card">
+          <h4 class="couple-name">Dewi Ayu Prameswari</h4>
+          <p class="couple-parents">Putri pambajeng saking Panjenenganipun Bapak Drs. H. Bambang Sudarmo &amp; Ibu Hj. Endang Sri Wahyuni</p>
+        </div>
+      </section>
+
+      <!-- Jadwal Acara -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Titi Wanci Acara</h3>
+        <p class="section-subtitle">Dipun laksanakaken kanthi tatacara Adat Jawi Gagrak Ngayogyakarta:</p>
+
+        <!-- Akad -->
+        <div class="event-card">
+          <span class="event-badge">Ijab Qobul</span>
+          <h4 class="event-title">Kediaman Mempelai Wanita</h4>
+          <p class="event-time">⏰ Rebo Pon, 25 Februari 2026 • 09:00 WIB</p>
+          <p class="event-location">Jl. Parangtritis KM 7, Sewon, Bantul, D.I. Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">📍 Pitedah Papan Google Maps</a>
+        </div>
+
+        <!-- Resepsi -->
+        <div class="event-card">
+          <span class="event-badge">Pahargyan Pawiwahan</span>
+          <h4 class="event-title">Sasana Hinggil Dwi Abad</h4>
+          <p class="event-time">⏰ Rebo Pon, 25 Februari 2026 • 11:00 - 13:00 WIB</p>
+          <p class="event-location">Alun-Alun Selatan, Kraton Yogyakarta (Busana: Batik Cokelat)</p>
+          <a href="https://calendar.google.com" target="_blank" class="btn-action btn-cal">📅 Simpen dhateng Google Calendar</a>
+        </div>
+      </section>
+
+      <!-- Amplop Digital & Tali Asih -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Kado &amp; Tali Asih Digital</h3>
+        <p class="section-subtitle">Donga pangestu panjenengan dados bingahing manah kawula. Nanging menawi kepareng paring tali asih kanthi cashless:</p>
+
+        <!-- Bank BCA -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Central Asia (BCA)</div>
+            <div class="wallet-acc-num">0374928172</div>
+            <div class="wallet-holder">a.n Susilo Hadi Prabowo</div>
+          </div>
+          <button onclick="copyText('0374928172', 'BCA')" class="btn-copy">Salin</button>
+        </div>
+
+        <!-- Bank Mandiri -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Mandiri</div>
+            <div class="wallet-acc-num">1370098472615</div>
+            <div class="wallet-holder">a.n Dewi Ayu Prameswari</div>
+          </div>
+          <button onclick="copyText('1370098472615', 'Mandiri')" class="btn-copy">Salin</button>
+        </div>
+      </section>
+
+      <!-- Buku Tamu & RSVP -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Buku Tamu &amp; Pangajab</h3>
+        <p class="section-subtitle">Katur panyuwun panjenengan paring donga puji lan konfirmasi kerawuhan:</p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label class="form-label" for="rsvpName">Asma Jangkep</label>
+              <input type="text" id="rsvpName" class="form-control" placeholder="Nama Panjenengan" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpStatus">Kerawuhan</label>
+              <select id="rsvpStatus" class="form-control">
+                <option value="hadir">Pasti Rawuh</option>
+                <option value="ragu">Taksih Rangu-rangu</option>
+                <option value="tidak">Nyuwun Pangapunten Mboten Saged Rawuh</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpMessage">Donga Pangestu</label>
+              <textarea id="rsvpMessage" rows="3" class="form-control" placeholder="Serat donga pangestu panjenengan..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit-rsvp" style="background: var(--theme-accent);">Kintun Donga Pangestu</button>
+          </form>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: #1E293B;">Donga Restu Para Tamu</h4>
+          <span style="font-size: 12px; color: #64748B;"><span id="wishesCount">0</span> Pangajab</span>
+        </div>
+        <div id="wishesList" class="wishes-stream"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="template-footer">
+        <p style="margin-bottom: 6px;">Undangan Digital digawe lumantar</p>
+        <p><a href="/" target="_blank">Undanganku.id</a> — Website Undangan Pernikahan Adat Jawa</p>
+      </footer>
+    </main>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audioToggle" class="audio-toggle-btn" title="Gamelan / Musik">🎵</button>
+
+  </div>
+
+  <script src="../assets/template-core.js"></script>
+  <script>
+    initAudio('../assets/music/pure-love-304010.mp3');
+    initCountdown('2026-02-25 09:00:00');
+    
+    initRsvpSystem('susilo', [
+      {
+        name: 'Keluarga Ageng Trah Hamengku',
+        status: 'hadir',
+        message: 'Nderek mangayubagya Mas Susilo kalian Mbak Dewi. Mugi dados keluarga ingkang sakinah mawaddah warahmah, tentrem ayem ayom.',
+        time: '2 jam yang lalu',
+        likes: 15
+      },
+      {
+        name: 'Budi Santoso & Garwa',
+        status: 'hadir',
+        message: 'Sugeng nampi gesang enggal Mas Susilo. Mugi lancar sedaya adicara pahargyanipun.',
+        time: '4 jam yang lalu',
+        likes: 9
+      }
+    ]);
+  </script>
+</body>
+</html>

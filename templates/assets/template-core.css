@@ -1,0 +1,578 @@
+/* ==========================================================================
+   UNDANGANKU.ID — TEMPLATE ENGINE CORE STYLES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #0F172A;
+  color: #1E293B;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+/* App Wrapper: Centered phone layout on desktop, full width on mobile */
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+/* 1. Welcome Screen (Envelope Opening) */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 24px 36px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.welcome-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 100%);
+  z-index: 1;
+}
+
+.welcome-content-top,
+.welcome-content-middle,
+.welcome-content-bottom {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.welcome-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.welcome-couple-title {
+  font-size: 42px;
+  line-height: 1.15;
+  margin: 8px 0;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.welcome-date {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
+}
+
+.guest-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.guest-card-label {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 6px;
+}
+
+.guest-card-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 16px;
+}
+
+.btn-open-invite {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 9999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-open-invite:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* 2. Main Invitation Content */
+.main-content {
+  display: none;
+  width: 100%;
+  position: relative;
+}
+
+.hero-banner {
+  width: 100%;
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, var(--theme-bg, #FFFFFF) 100%);
+}
+
+.section-padding {
+  padding: 40px 24px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 13.5px;
+  color: #64748B;
+  max-width: 380px;
+  margin: 0 auto 30px;
+  line-height: 1.5;
+}
+
+/* 3. Countdown Widget */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0 32px;
+}
+
+.countdown-box {
+  background: var(--theme-card-bg, rgba(255, 255, 255, 0.9));
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  border-radius: 16px;
+  padding: 14px 6px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.countdown-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--theme-accent, #0087EB);
+  display: block;
+  line-height: 1.1;
+}
+
+.countdown-label {
+  font-size: 10.5px;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  display: block;
+}
+
+/* 4. Couple Card */
+.couple-card {
+  background: var(--theme-card-bg, #FFFFFF);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  text-align: center;
+}
+
+.couple-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 3px solid var(--theme-accent, #0087EB);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.couple-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.couple-parents {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+/* 5. Event Schedule Card */
+.event-card {
+  background: var(--theme-card-bg, #FFFFFF);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.event-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--theme-accent-light, #E0F2FE);
+  color: var(--theme-accent, #0087EB);
+  margin-bottom: 12px;
+}
+
+.event-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.event-time {
+  font-size: 13.5px;
+  color: var(--theme-accent, #0087EB);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-location {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-maps {
+  background: var(--theme-accent, #0087EB);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.btn-cal {
+  background: transparent;
+  color: var(--theme-accent, #0087EB);
+  border: 1px solid var(--theme-accent, #0087EB);
+}
+
+/* 6. Amplop Digital */
+.wallet-box {
+  background: var(--theme-card-bg, #FFFFFF);
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wallet-bank-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.wallet-acc-num {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--theme-accent, #0087EB);
+  margin: 4px 0 2px;
+}
+
+.wallet-holder {
+  font-size: 11.5px;
+  color: #64748B;
+}
+
+.btn-copy {
+  background: var(--theme-accent-light, #E0F2FE);
+  color: var(--theme-accent, #0087EB);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-copy:hover {
+  filter: brightness(0.95);
+}
+
+/* 7. RSVP & Guestbook */
+.rsvp-form-container {
+  background: var(--theme-card-bg, #FFFFFF);
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid #CBD5E1;
+  font-size: 13.5px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--theme-accent, #0087EB);
+}
+
+.btn-submit-rsvp {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  background: var(--theme-accent, #0087EB);
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wishes-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.wish-card {
+  background: var(--theme-card-bg, #FFFFFF);
+  border: 1px solid var(--theme-card-border, #E2E8F0);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.wish-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.wish-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--theme-accent, #0087EB);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.wish-meta {
+  flex: 1;
+}
+
+.wish-meta h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.wish-time {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.wish-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 9999px;
+}
+
+.badge-hadir { background: #DCFCE7; color: #15803D; }
+.badge-ragu { background: #FEF9C3; color: #A16207; }
+.badge-tidak { background: #F1F5F9; color: #64748B; }
+
+.wish-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.wish-like-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: #64748B;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wish-like-btn.liked {
+  color: #EF4444;
+  font-weight: 700;
+}
+
+/* 8. Floating Audio Button */
+.audio-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: calc(50% - 215px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-size: 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 990;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+
+@media (max-width: 480px) {
+  .audio-toggle-btn {
+    right: 20px;
+  }
+}
+
+.audio-toggle-btn.rotating {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* 9. Template Toast */
+.template-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(15, 23, 42, 0.95);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+.template-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 10. Footer */
+.template-footer {
+  text-align: center;
+  padding: 30px 20px 50px;
+  border-top: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  font-size: 12px;
+  color: #64748B;
+}
+
+.template-footer a {
+  color: var(--theme-accent, #0087EB);
+  text-decoration: none;
+  font-weight: 600;
+}

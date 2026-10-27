@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pernikahan Cahaya &amp; Muhammad — Undanganku.id</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/template-core.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --theme-bg: #F8FAF9;
+      --theme-card-bg: #FFFFFF;
+      --theme-card-border: #DDE7E2;
+      --theme-accent: #2C5E43;
+      --theme-accent-light: #E8F2EC;
+      --theme-gold: #C29B38;
+      --font-title: 'Cinzel', serif;
+      --font-arabic: 'Amiri', serif;
+    }
+    body { background-color: #12231A; }
+    .welcome-screen {
+      background-image: url('../../assets/templates/template-cahaya-muhammad.png');
+    }
+    .welcome-badge {
+      background: #C29B38;
+      color: #FFFFFF;
+      font-family: var(--font-title);
+    }
+    .welcome-couple-title {
+      font-family: var(--font-title);
+      color: #FFFFFF;
+    }
+    .btn-open-invite {
+      background: linear-gradient(135deg, #2C5E43 0%, #1A3E2B 100%);
+      color: #FFFFFF;
+    }
+    .arabic-title {
+      font-family: var(--font-arabic);
+      font-size: 26px;
+      color: var(--theme-accent);
+      margin-bottom: 8px;
+    }
+    .couple-name {
+      font-family: var(--font-title);
+      color: var(--theme-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Welcome Screen (Envelope Opening) -->
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-content-top">
+        <span class="welcome-badge">Walimatul 'Ursy</span>
+        <h1 class="welcome-couple-title">Cahaya &amp; Muhammad</h1>
+        <p class="welcome-date" style="color: #E2E8F0;">Minggu, 2 Maret 2030</p>
+      </div>
+
+      <div class="welcome-content-middle">
+        <div class="guest-card">
+          <p class="guest-card-label">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+          <h3 id="guestNameText" class="guest-card-name">Tamu Undangan Terhormat</h3>
+          <button onclick="openInvitation()" class="btn-open-invite">
+            <span>✉️</span> Buka Undangan
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome-content-bottom">
+        <p style="font-size: 11.5px; color: rgba(255,255,255,0.75);">Undangan Digital Eksklusif • Undanganku.id</p>
+      </div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="main-content" style="background: var(--theme-bg);">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <img src="../../assets/templates/template-cahaya-muhammad.png" alt="Cahaya & Muhammad" style="object-position: center 20%;">
+        <div class="hero-banner-overlay"></div>
+      </div>
+
+      <!-- Ayat & Pembuka -->
+      <section class="section-padding" style="text-align: center; padding-top: 10px;">
+        <h2 class="arabic-title">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
+        <p style="font-size: 13px; color: #4B5563; line-height: 1.6; margin-bottom: 20px;">
+          "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."<br>
+          <strong style="color: var(--theme-accent);">(QS. Ar-Rum: 21)</strong>
+        </p>
+        
+        <!-- Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="cdDays" class="countdown-num">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdHours" class="countdown-num">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdMins" class="countdown-num">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdSecs" class="countdown-num">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mempelai -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Mempelai Bahagia</h3>
+        <p class="section-subtitle">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+
+        <!-- Pria -->
+        <div class="couple-card">
+          <h4 class="couple-name">Muhammad Al-Fatih, S.T.</h4>
+          <p class="couple-parents">Putra pertama dari Bapak H. Ahmad Syukri &amp; Ibu Hj. Siti Maryam</p>
+        </div>
+
+        <div style="font-size: 26px; font-weight: 700; color: var(--theme-gold); margin: -10px 0 10px; text-align: center;">&amp;</div>
+
+        <!-- Wanita -->
+        <div class="couple-card">
+          <h4 class="couple-name">Cahaya Khairunnisa, S.Farm.</h4>
+          <p class="couple-parents">Putri kedua dari Bapak H. Bambang Irawan &amp; Ibu Hj. Nur Halimah</p>
+        </div>
+      </section>
+
+      <!-- Jadwal Acara -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Rangkaian Acara</h3>
+        <p class="section-subtitle">Insya Allah akan diselenggarakan pada:</p>
+
+        <!-- Akad -->
+        <div class="event-card">
+          <span class="event-badge">Akad Nikah</span>
+          <h4 class="event-title">Masjid An-Nur Wonosari</h4>
+          <p class="event-time">⏰ Minggu, 2 Maret 2030 • 09:00 WIB</p>
+          <p class="event-location">Jl. H. Sayuti No. 49, Wonosari, Gunungkidul, D.I. Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">📍 Petunjuk Lokasi Google Maps</a>
+        </div>
+
+        <!-- Resepsi -->
+        <div class="event-card">
+          <span class="event-badge">Resepsi Pernikahan</span>
+          <h4 class="event-title">Ballroom Hotel Larana</h4>
+          <p class="event-time">⏰ Minggu, 2 Maret 2030 • 13:00 - 17:00 WIB</p>
+          <p class="event-location">Jl. H. Sayuti No. 56, Wonosari, Gunungkidul, D.I. Yogyakarta</p>
+          <a href="https://calendar.google.com" target="_blank" class="btn-action btn-cal">📅 Simpan ke Google Calendar</a>
+        </div>
+      </section>
+
+      <!-- Amplop Digital & Kado -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Kado &amp; Amplop Digital</h3>
+        <p class="section-subtitle">Doa restu Anda adalah karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara digital, Anda dapat melalui:</p>
+
+        <!-- Bank Syariah / BCA -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Syariah Indonesia (BSI)</div>
+            <div class="wallet-acc-num">7145293810</div>
+            <div class="wallet-holder">a.n Muhammad Al-Fatih</div>
+          </div>
+          <button onclick="copyText('7145293810', 'BSI')" class="btn-copy">Salin</button>
+        </div>
+
+        <!-- Bank Mandiri -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Mandiri</div>
+            <div class="wallet-acc-num">1370019283741</div>
+            <div class="wallet-holder">a.n Cahaya Khairunnisa</div>
+          </div>
+          <button onclick="copyText('1370019283741', 'Mandiri')" class="btn-copy">Salin</button>
+        </div>
+      </section>
+
+      <!-- RSVP & Ucapan -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Buku Tamu &amp; Doa Restu</h3>
+        <p class="section-subtitle">Kirimkan ucapan selamat dan konfirmasi kehadiran Anda:</p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label class="form-label" for="rsvpName">Nama Lengkap</label>
+              <input type="text" id="rsvpName" class="form-control" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpStatus">Konfirmasi Kehadiran</label>
+              <select id="rsvpStatus" class="form-control">
+                <option value="hadir">Pasti Hadir</option>
+                <option value="ragu">Masih Ragu / Mungkin Hadir</option>
+                <option value="tidak">Maaf, Tidak Bisa Hadir</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpMessage">Doa Restu &amp; Ucapan</label>
+              <textarea id="rsvpMessage" rows="3" class="form-control" placeholder="Tuliskan ucapan dan doa terbaik Anda..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit-rsvp" style="background: var(--theme-accent);">Kirim Doa Restu</button>
+          </form>
+        </div>
+
+        <!-- List Doa Restu -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: #1E293B;">Doa Restu Tamu</h4>
+          <span style="font-size: 12px; color: #64748B;"><span id="wishesCount">0</span> Ucapan</span>
+        </div>
+        <div id="wishesList" class="wishes-stream"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="template-footer">
+        <p style="margin-bottom: 6px;">Undangan Digital dibuat dengan ❤️ menggunakan platform</p>
+        <p><a href="/" target="_blank">Undanganku.id</a> — Website Undangan Pernikahan Masa Kini</p>
+      </footer>
+    </main>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audioToggle" class="audio-toggle-btn" title="Nyalakan/Matikan Musik">🎵</button>
+
+  </div>
+
+  <script src="../assets/template-core.js"></script>
+  <script>
+    // Inisialisasi Audio, Countdown & Komentar Awal
+    initAudio('../assets/music/pure-love-304010.mp3');
+    initCountdown('2030-03-02 09:00:00');
+    
+    initRsvpSystem('cahaya', [
+      {
+        name: 'Ustadz Abdullah & Keluarga',
+        status: 'hadir',
+        message: 'Barakallahu laka wa baraka alaika wa jamaa bainakuma fii khoir. Semoga menjadi keluarga sakinah, mawaddah, warahmah.',
+        time: '1 jam yang lalu',
+        likes: 12
+      },
+      {
+        name: 'Rian Pratama, S.T.',
+        status: 'hadir',
+        message: 'Selamat saudaraku Fatih dan Cahaya! Lancar sampai hari H ya sobat perjuangan teknik.',
+        time: '3 jam yang lalu',
+        likes: 8
+      },
+      {
+        name: 'Dinda Kirana',
+        status: 'hadir',
+        message: 'Masya Allah cantiknya Cahaya! Selamat menempuh hidup baru sahabatku tercinta.',
+        time: '5 jam yang lalu',
+        likes: 5
+      }
+    ]);
+  </script>
+</body>
+</html>

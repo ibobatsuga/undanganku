@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pawiwahan Rosa Maria &amp; Daniel Gallego — Undanganku.id</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/template-core.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --theme-bg: #0C0D11;
+      --theme-card-bg: #15171F;
+      --theme-card-border: #3B3322;
+      --theme-accent: #E5A93C;
+      --theme-accent-light: #242018;
+      --theme-gold: #F5C564;
+      --font-title: 'Cinzel', serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+    body { background-color: #050507; color: #E2E8F0; }
+    .welcome-screen {
+      background-image: url('../../assets/templates/template-rosamaria-daniel.png');
+    }
+    .welcome-badge {
+      background: linear-gradient(135deg, #E5A93C 0%, #B88220 100%);
+      color: #0C0D11;
+      font-weight: 700;
+      font-family: var(--font-title);
+      letter-spacing: 2px;
+    }
+    .welcome-couple-title {
+      font-family: var(--font-title);
+      color: #FFFFFF;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+    .btn-open-invite {
+      background: linear-gradient(135deg, #E5A93C 0%, #B88220 100%);
+      color: #0C0D11;
+      font-weight: 700;
+    }
+    .couple-name {
+      font-family: var(--font-title);
+      color: var(--theme-gold);
+    }
+    
+    /* Dark Theme Overrides for Royal Balinese Luxury */
+    .app-container {
+      background-color: var(--theme-bg);
+      color: #CBD5E1;
+      border-color: #2D2518;
+    }
+    .main-content {
+      background-color: var(--theme-bg) !important;
+    }
+    .section-title {
+      color: var(--theme-gold) !important;
+    }
+    .section-subtitle {
+      color: #94A3B8 !important;
+    }
+    .countdown-box {
+      background: #181922;
+      border: 1px solid #3B3322;
+    }
+    .countdown-num {
+      color: var(--theme-gold);
+    }
+    .countdown-label {
+      color: #94A3B8;
+    }
+    .couple-card {
+      background: #15171F !important;
+      border: 1px solid #332B1A;
+    }
+    .couple-parents {
+      color: #94A3B8;
+    }
+    .event-card {
+      background: #15171F;
+      border: 1px solid #332B1A;
+    }
+    .event-title {
+      color: #FFFFFF;
+    }
+    .event-time {
+      color: var(--theme-gold);
+    }
+    .event-location {
+      color: #94A3B8;
+    }
+    .btn-maps {
+      background: #20232E;
+      color: #E2E8F0;
+      border: 1px solid #3E4557;
+    }
+    .btn-cal {
+      background: linear-gradient(135deg, #E5A93C 0%, #B88220 100%);
+      color: #0C0D11;
+      font-weight: 600;
+    }
+    .wallet-box {
+      background: #15171F;
+      border: 1px solid #332B1A;
+    }
+    .wallet-bank-name {
+      color: var(--theme-gold);
+    }
+    .wallet-acc-num {
+      color: #FFFFFF;
+    }
+    .wallet-holder {
+      color: #94A3B8;
+    }
+    .btn-copy {
+      background: #2A2315;
+      color: var(--theme-gold);
+      border: 1px solid #4D3C1D;
+    }
+    .rsvp-form-container {
+      background: #15171F;
+      border: 1px solid #332B1A;
+    }
+    .form-label {
+      color: #CBD5E1;
+    }
+    .form-control {
+      background: #0E0F14;
+      border: 1px solid #2F2A1E;
+      color: #FFFFFF;
+    }
+    .form-control:focus {
+      border-color: var(--theme-gold);
+    }
+    .wish-bubble {
+      background: #15171F;
+      border: 1px solid #2F2A1E;
+    }
+    .wish-name {
+      color: var(--theme-gold);
+    }
+    .wish-text {
+      color: #CBD5E1;
+    }
+    .template-footer {
+      border-top-color: #242018;
+      color: #64748B;
+    }
+    .template-footer a {
+      color: var(--theme-gold);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Welcome Screen (Envelope Opening) -->
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-content-top">
+        <span class="welcome-badge">ROYAL BALINESE WEDDING</span>
+        <h1 class="welcome-couple-title">Rosa Maria &amp; Daniel Gallego</h1>
+        <p class="welcome-date" style="color: #F5C564;">Senin, 18 Oktober 2030</p>
+      </div>
+
+      <div class="welcome-content-middle">
+        <div class="guest-card" style="background: rgba(18, 20, 27, 0.92); border: 1px solid rgba(229, 169, 60, 0.35);">
+          <p class="guest-card-label" style="color: #A3AAB8;">Kepada Yth. Tamu Kehormatan:</p>
+          <h3 id="guestNameText" class="guest-card-name" style="color: #F5C564;">Tamu Undangan Terhormat</h3>
+          <button onclick="openInvitation()" class="btn-open-invite">
+            <span>✨</span> Buka Undangan VIP
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome-content-bottom">
+        <p style="font-size: 11.5px; color: rgba(245, 197, 100, 0.85);">Undangan Eksklusif Royal VIP • Undanganku.id</p>
+      </div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="main-content">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <img src="../../assets/templates/template-rosamaria-daniel.png" alt="Rosa Maria & Daniel Gallego" style="object-position: center 25%;">
+        <div class="hero-banner-overlay" style="background: linear-gradient(180deg, rgba(12,13,17,0.1) 0%, rgba(12,13,17,0.95) 100%);"></div>
+      </div>
+
+      <!-- Pembuka & Sloka -->
+      <section class="section-padding" style="text-align: center; padding-top: 10px;">
+        <p style="font-family: var(--font-title); font-size: 18px; color: var(--theme-gold); letter-spacing: 2px; margin-bottom: 8px;">OM SWASTYASTU</p>
+        <p style="font-size: 13.5px; color: #94A3B8; line-height: 1.6; margin-bottom: 20px; font-style: italic;">
+          "Ihaiva stam ma vi yaustam visvam ayur vyasnutam krilantau putrair naptrbhih modamanau sve grhe."<br>
+          <span style="font-size: 12.5px; color: #CBD5E1; display: inline-block; margin-top: 6px;">(Semoga pasangan ini selalu terikat dalam cinta dan kasih sayang abadi, menikmati hidup yang panjang dan berbahagia di rumah tangga mereka - Rg Veda X.85.42)</span>
+        </p>
+        
+        <!-- Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="cdDays" class="countdown-num">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdHours" class="countdown-num">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdMins" class="countdown-num">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdSecs" class="countdown-num">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mempelai -->
+      <section class="section-padding" style="background: #111218;">
+        <h3 class="section-title" style="font-family: var(--font-title);">Mempelai Berbahagia</h3>
+        <p class="section-subtitle">Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa, kami mengundang Bapak/Ibu/Saudara/i ke perayaan pernikahan kami:</p>
+
+        <!-- Groom -->
+        <div class="couple-card">
+          <h4 class="couple-name">Daniel Gallego Rodriguez</h4>
+          <p class="couple-parents">Putra pertama dari Mr. Antonio Gallego &amp; Mrs. Elena Rodriguez</p>
+        </div>
+
+        <div style="font-family: var(--font-title); font-size: 26px; color: var(--theme-gold); margin: -8px 0 8px; text-align: center;">&amp;</div>
+
+        <!-- Bride -->
+        <div class="couple-card">
+          <h4 class="couple-name">Rosa Maria Saraswati, S.E.</h4>
+          <p class="couple-parents">Putri sulung dari Ida Bagus Made Arimbawa &amp; Ida Ayu Putu Ratih</p>
+        </div>
+      </section>
+
+      <!-- Jadwal Acara -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title);">Rangkaian Upacara &amp; Resepsi</h3>
+        <p class="section-subtitle">Akan diselenggarakan dengan khidmat pada:</p>
+
+        <!-- Pawiwahan / Upacara Adat -->
+        <div class="event-card">
+          <span class="event-badge" style="background: #282012; color: var(--theme-gold); border: 1px solid #5A441F;">Upacara Pawiwahan</span>
+          <h4 class="event-title">Griya Saraswati Mandala</h4>
+          <p class="event-time">⏰ Senin, 18 Oktober 2030 • 09:00 - 11:30 WIB</p>
+          <p class="event-location">Jl. Affandi No. 12, Gejayan, Condongcatur, Sleman, D.I. Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">📍 Petunjuk Lokasi Google Maps</a>
+        </div>
+
+        <!-- Royal Gala Reception -->
+        <div class="event-card">
+          <span class="event-badge" style="background: #282012; color: var(--theme-gold); border: 1px solid #5A441F;">Royal Gala Dinner &amp; Reception</span>
+          <h4 class="event-title">Grand Ballroom Gramm Hotel by Ambarrukmo</h4>
+          <p class="event-time">⏰ Senin, 18 Oktober 2030 • 18:00 - 22:00 WIB</p>
+          <p class="event-location">Jl. Laksda Adisucipto No. 82, Caturtunggal, Depok, Sleman, D.I. Yogyakarta</p>
+          <a href="https://calendar.google.com" target="_blank" class="btn-action btn-cal">📅 Simpan ke Google Calendar</a>
+        </div>
+      </section>
+
+      <!-- Amplop Digital & Kado -->
+      <section class="section-padding" style="background: #111218;">
+        <h3 class="section-title" style="font-family: var(--font-title);">Tanda Kasih Digital</h3>
+        <p class="section-subtitle">Kehadiran dan doa restu Anda adalah anugerah terbesar bagi kami. Bagi keluarga dan rekan yang ingin mengirimkan tanda kasih secara digital:</p>
+
+        <!-- BCA -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank BCA</div>
+            <div class="wallet-acc-num">0372918451</div>
+            <div class="wallet-holder">a.n Daniel Gallego Rodriguez</div>
+          </div>
+          <button onclick="copyText('0372918451', 'BCA')" class="btn-copy">Salin Rekening</button>
+        </div>
+
+        <!-- Mandiri -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Mandiri</div>
+            <div class="wallet-acc-num">1370028491029</div>
+            <div class="wallet-holder">a.n Rosa Maria Saraswati</div>
+          </div>
+          <button onclick="copyText('1370028491029', 'Mandiri')" class="btn-copy">Salin Rekening</button>
+        </div>
+      </section>
+
+      <!-- RSVP & Ucapan -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title);">Buku Tamu VIP &amp; Doa Restu</h3>
+        <p class="section-subtitle">Mohon konfirmasikan kehadiran Anda untuk persiapan jamuan eksklusif:</p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label class="form-label" for="rsvpName">Nama Tamu Undangan</label>
+              <input type="text" id="rsvpName" class="form-control" placeholder="Nama Lengkap / Instansi" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpStatus">Konfirmasi Kehadiran</label>
+              <select id="rsvpStatus" class="form-control">
+                <option value="hadir">Pasti Hadir</option>
+                <option value="ragu">Masih Ragu / Mungkin Hadir</option>
+                <option value="tidak">Maaf, Tidak Dapat Hadir</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpMessage">Pesan Doa Restu</label>
+              <textarea id="rsvpMessage" rows="3" class="form-control" placeholder="Tuliskan doa restu dan ucapan selamat..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit-rsvp" style="background: linear-gradient(135deg, #E5A93C 0%, #B88220 100%); color: #0C0D11; font-weight: 700;">Kirim Konfirmasi &amp; Ucapan</button>
+          </form>
+        </div>
+
+        <!-- List Doa Restu -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: var(--theme-gold);">Doa Restu Kehormatan</h4>
+          <span style="font-size: 12px; color: #94A3B8;"><span id="wishesCount">0</span> Ucapan</span>
+        </div>
+        <div id="wishesList" class="wishes-stream"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="template-footer">
+        <p style="margin-bottom: 6px;">Undangan Digital dibuat dengan ❤️ menggunakan platform</p>
+        <p><a href="/" target="_blank">Undanganku.id</a> — Website Undangan Pernikahan Masa Kini</p>
+      </footer>
+    </main>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audioToggle" class="audio-toggle-btn" style="background: #1C1E26; border-color: #E5A93C; color: #E5A93C;" title="Nyalakan/Matikan Musik">🎵</button>
+
+  </div>
+
+  <script src="../assets/template-core.js"></script>
+  <script>
+    initAudio('../assets/music/pure-love-304010.mp3');
+    initCountdown('2030-10-18 09:00:00');
+    
+    initRsvpSystem('rosamaria', [
+      {
+        name: 'Gubernur & Ibu Bali',
+        status: 'hadir',
+        message: 'Rahajeng manggih hayu tur bagia kanti riwekasan antuk Rosa Maria & Daniel Gallego. Dumogi langgeng kanti kakek nenek.',
+        time: '1 jam yang lalu',
+        likes: 28
+      },
+      {
+        name: 'Rodriguez Family (Madrid)',
+        status: 'hadir',
+        message: 'Enhorabuena Daniel y Rosa! Os deseamos toda la felicidad del mundo en este hermoso camino juntos. Nos vemos muy pronto!',
+        time: '3 jam yang lalu',
+        likes: 19
+      },
+      {
+        name: 'Gede Arya & Shinta',
+        status: 'hadir',
+        message: 'Selamat menempuh babak kehidupan baru sahabatku Rosa & Daniel! Sukses dan bahagia selalu menyertai.',
+        time: '5 jam yang lalu',
+        likes: 11
+      }
+    ]);
+  </script>
+</body>
+</html>

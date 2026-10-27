@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Wedding of Daniel &amp; Donna — Undanganku.id</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../assets/template-core.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --theme-bg: #F6F8F5;
+      --theme-card-bg: #FFFFFF;
+      --theme-card-border: #DDE5DD;
+      --theme-accent: #2D5A43;
+      --theme-accent-light: #EDF3EE;
+      --theme-gold: #C08A4E;
+      --font-title: 'Playfair Display', serif;
+      --font-script: 'Alex Brush', cursive;
+    }
+    body { background-color: #172E22; }
+    .welcome-screen {
+      background-image: url('../../assets/templates/template-daniel-donna.png');
+    }
+    .welcome-badge {
+      background: var(--theme-gold);
+      color: #FFFFFF;
+      font-family: var(--font-title);
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+    .welcome-couple-title {
+      font-family: var(--font-script);
+      font-size: 46px;
+      line-height: 1.1;
+      color: #FFFFFF;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+    }
+    .btn-open-invite {
+      background: linear-gradient(135deg, #2D5A43 0%, #1A3929 100%);
+      color: #FFFFFF;
+    }
+    .couple-name {
+      font-family: var(--font-title);
+      color: var(--theme-accent);
+    }
+    .script-sub {
+      font-family: var(--font-script);
+      font-size: 32px;
+      color: var(--theme-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- 1. Welcome Screen (Envelope Opening) -->
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-content-top">
+        <span class="welcome-badge">THE WEDDING OF</span>
+        <h1 class="welcome-couple-title">Daniel &amp; Donna</h1>
+        <p class="welcome-date" style="color: #E2E8F0;">Sabtu, 24 Mei 2026</p>
+      </div>
+
+      <div class="welcome-content-middle">
+        <div class="guest-card">
+          <p class="guest-card-label">Kepada Yth. Tamu Spesial:</p>
+          <h3 id="guestNameText" class="guest-card-name">Tamu Undangan Terhormat</h3>
+          <button onclick="openInvitation()" class="btn-open-invite">
+            <span>🌿</span> Buka Undangan
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome-content-bottom">
+        <p style="font-size: 11.5px; color: rgba(255,255,255,0.75);">Undangan Digital Rustic Botanical • Undanganku.id</p>
+      </div>
+    </div>
+
+    <!-- 2. Main Invitation Content -->
+    <main id="mainContent" class="main-content" style="background: var(--theme-bg);">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <img src="../../assets/templates/template-daniel-donna.png" alt="Daniel & Donna" style="object-position: center 25%;">
+        <div class="hero-banner-overlay"></div>
+      </div>
+
+      <!-- Quote -->
+      <section class="section-padding" style="text-align: center; padding-top: 10px;">
+        <p class="script-sub">Two Hearts, One Journey</p>
+        <p style="font-size: 13.5px; color: #4B5563; line-height: 1.6; margin-bottom: 20px; font-style: italic;">
+          "I have found the one whom my soul loves."<br>
+          <strong style="color: var(--theme-accent); font-style: normal; font-weight: 600;">(Song of Solomon 3:4)</strong>
+        </p>
+        
+        <!-- Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="cdDays" class="countdown-num">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdHours" class="countdown-num">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdMins" class="countdown-num">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span id="cdSecs" class="countdown-num">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mempelai -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Mempelai Berbahagia</h3>
+        <p class="section-subtitle">Bersama keluarga kami mengundang Anda untuk merayakan cinta dan persatuan kami:</p>
+
+        <!-- Groom -->
+        <div class="couple-card">
+          <h4 class="couple-name">Daniel Prasetya, S.Kom.</h4>
+          <p class="couple-parents">Putra pertama dari Bapak Ir. Johanes Prasetya &amp; Ibu Maria Natalia</p>
+        </div>
+
+        <div style="font-family: var(--font-script); font-size: 38px; color: var(--theme-gold); margin: -6px 0 6px; text-align: center;">with</div>
+
+        <!-- Bride -->
+        <div class="couple-card">
+          <h4 class="couple-name">Donna Valerie, S.Ds.</h4>
+          <p class="couple-parents">Putri bungsu dari Bapak Hendra Gunawan &amp; Ibu Veronika Susanti</p>
+        </div>
+      </section>
+
+      <!-- Jadwal Acara -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Rangkaian Acara</h3>
+        <p class="section-subtitle">Akan diselenggarakan pada:</p>
+
+        <!-- Pemberkatan -->
+        <div class="event-card">
+          <span class="event-badge">Pemberkatan Nikah</span>
+          <h4 class="event-title">Gereja Santo Antonius Padua Kotabaru</h4>
+          <p class="event-time">⏰ Sabtu, 24 Mei 2026 • 10:00 WIB</p>
+          <p class="event-location">Jl. Abu Bakar Ali No. 1, Kotabaru, Gondokusuman, Kota Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">📍 Petunjuk Lokasi Google Maps</a>
+        </div>
+
+        <!-- Resepsi -->
+        <div class="event-card">
+          <span class="event-badge">Wedding Reception</span>
+          <h4 class="event-title">Grha Saba Pramana UGM</h4>
+          <p class="event-time">⏰ Sabtu, 24 Mei 2026 • 18:30 - 21:00 WIB</p>
+          <p class="event-location">Kawasan Bulaksumur, Sagan, Caturtunggal, Depok, Sleman, D.I. Yogyakarta</p>
+          <a href="https://calendar.google.com" target="_blank" class="btn-action btn-cal">📅 Simpan ke Google Calendar</a>
+        </div>
+      </section>
+
+      <!-- Amplop Digital & Kado -->
+      <section class="section-padding" style="background: #FFFFFF;">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Wedding Gift</h3>
+        <p class="section-subtitle">Doa restu Anda merupakan hadiah terindah bagi kami. Bagi Anda yang ingin mengirimkan tanda cinta digital:</p>
+
+        <!-- BCA -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank Central Asia (BCA)</div>
+            <div class="wallet-acc-num">8465192034</div>
+            <div class="wallet-holder">a.n Daniel Prasetya</div>
+          </div>
+          <button onclick="copyText('8465192034', 'BCA')" class="btn-copy">Salin</button>
+        </div>
+
+        <!-- BNI -->
+        <div class="wallet-box">
+          <div>
+            <div class="wallet-bank-name">Bank BNI</div>
+            <div class="wallet-acc-num">0829148561</div>
+            <div class="wallet-holder">a.n Donna Valerie</div>
+          </div>
+          <button onclick="copyText('0829148561', 'BNI')" class="btn-copy">Salin</button>
+        </div>
+      </section>
+
+      <!-- RSVP & Ucapan -->
+      <section class="section-padding">
+        <h3 class="section-title" style="font-family: var(--font-title); color: var(--theme-accent);">Buku Tamu &amp; Pesan Kasih</h3>
+        <p class="section-subtitle">Konfirmasi kehadiran Anda dan berikan pesan hangat bagi kami:</p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label class="form-label" for="rsvpName">Nama Lengkap</label>
+              <input type="text" id="rsvpName" class="form-control" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpStatus">Konfirmasi Kehadiran</label>
+              <select id="rsvpStatus" class="form-control">
+                <option value="hadir">Pasti Hadir</option>
+                <option value="ragu">Masih Ragu / Mungkin Hadir</option>
+                <option value="tidak">Maaf, Tidak Bisa Hadir</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rsvpMessage">Pesan Hangat &amp; Doa</label>
+              <textarea id="rsvpMessage" rows="3" class="form-control" placeholder="Tuliskan ucapan dan harapan terbaikmu..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit-rsvp" style="background: var(--theme-accent);">Kirim Pesan Kasih</button>
+          </form>
+        </div>
+
+        <!-- List Doa Restu -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: #1E293B;">Ucapan Selamat</h4>
+          <span style="font-size: 12px; color: #64748B;"><span id="wishesCount">0</span> Ucapan</span>
+        </div>
+        <div id="wishesList" class="wishes-stream"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="template-footer">
+        <p style="margin-bottom: 6px;">Undangan Digital dibuat dengan ❤️ menggunakan platform</p>
+        <p><a href="/" target="_blank">Undanganku.id</a> — Website Undangan Pernikahan Masa Kini</p>
+      </footer>
+    </main>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audioToggle" class="audio-toggle-btn" title="Nyalakan/Matikan Musik">🎵</button>
+
+  </div>
+
+  <script src="../assets/template-core.js"></script>
+  <script>
+    initAudio('../assets/music/pure-love-304010.mp3');
+    initCountdown('2026-05-24 10:00:00');
+    
+    initRsvpSystem('daniel', [
+      {
+        name: 'Kelvin & Olivia',
+        status: 'hadir',
+        message: 'Congratulations Daniel & Donna! Wishing you both a lifetime of immense joy, love, and happiness together!',
+        time: '2 jam yang lalu',
+        likes: 14
+      },
+      {
+        name: 'Grace Natalia, S.Ds.',
+        status: 'hadir',
+        message: 'Aaaaa cantiknya Donna! Happy wedding ya teman seperjuangan kampus, see you at GSP!',
+        time: '4 jam yang lalu',
+        likes: 9
+      },
+      {
+        name: 'Michael Wijaya',
+        status: 'hadir',
+        message: 'Selamat bro Daniel! Semoga lancar semua persiapannya sampai hari H.',
+        time: '6 jam yang lalu',
+        likes: 6
+      }
+    ]);
+  </script>
+</body>
+</html>

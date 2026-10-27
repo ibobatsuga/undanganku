@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undanganku.id — Undangan Digital Website Indonesia</title>
+  <meta name="description" content="Platform undangan digital Indonesia. Bikin undangan digital website hanya dalam 10 menit dengan fitur kelola RSVP & kado via WhatsApp. Desain glassmorphism modern.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='10' fill='%230087EB'/><path d='M16 8v16M8 16h16' stroke='%23FFE0AE' stroke-width='3' stroke-linecap='round'/></svg>">
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+
+  <!-- Atmospheric Background Glow Mesh (Image B Colors: Peach & Sky Blue) -->
+  <div class="background-atmosphere" aria-hidden="true">
+    <div class="glow-orb-peach"></div>
+    <div class="glow-orb-blue-left"></div>
+    <div class="glow-orb-blue-right"></div>
+    <div class="glow-orb-middle"></div>
+    <div class="glow-orb-bottom"></div>
+  </div>
+
+  <!-- STICKY GLASS NAVBAR -->
+  <header style="position: sticky; top: 16px; z-index: 100; margin-bottom: 24px;">
+    <div class="container-custom">
+      <nav class="glass-pill" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; max-width: 1020px; margin: 0 auto; position: relative;">
+        
+        <!-- Logo -->
+        <a href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--color-dark);">
+          <div style="width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, #0087EB 0%, #B1E3FF 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 135, 235, 0.3);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.5 0 4 2 4 4.5V17z"></path>
+              <polyline points="2 9.5 12 15 22 9.5"></polyline>
+            </svg>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1.1;">Undanganku<span style="color: #0087EB;">.id</span></span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links" style="display: flex; align-items: center; gap: 28px;">
+          <a href="#fitur" class="nav-link" style="color: var(--color-dark-muted); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color 0.2s;">Fitur</a>
+          <a href="#templates" class="nav-link" style="color: var(--color-dark-muted); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color 0.2s;">Template</a>
+          <a href="#pricing" class="nav-link" style="color: var(--color-dark-muted); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color 0.2s;">Harga</a>
+          <a href="#testimoni" class="nav-link" style="color: var(--color-dark-muted); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color 0.2s;">Testimoni</a>
+          <a href="#faq" class="nav-link" style="color: var(--color-dark-muted); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color 0.2s;">FAQ</a>
+        </div>
+
+        <!-- Header Right Actions: Masuk & Buat Undangan -->
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="#login" onclick="openAuthModal('login'); return false;" class="desktop-cta-btn" style="color: var(--color-dark); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px;">Masuk</a>
+          <a href="#register" onclick="openAuthModal('register'); return false;" class="btn-primary desktop-cta-btn" style="padding: 8px 22px; font-size: 13.5px;">Buat Undangan</a>
+          
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-toggle-btn" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Menu navigasi mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Navigation Drawer -->
+      <div id="mobileMenu" class="mobile-menu-drawer">
+        <div class="mobile-nav-links">
+          <a href="#fitur" class="mobile-nav-link" onclick="toggleMobileMenu()">Fitur Lengkap</a>
+          <a href="#templates" class="mobile-nav-link" onclick="toggleMobileMenu()">Koleksi Template</a>
+          <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileMenu()">Paket & Harga</a>
+          <a href="#testimoni" class="mobile-nav-link" onclick="toggleMobileMenu()">Testimoni Pasangan</a>
+          <a href="#faq" class="mobile-nav-link" onclick="toggleMobileMenu()">Tanya Jawab (FAQ)</a>
+        </div>
+        <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(0, 135, 235, 0.1); display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="toggleMobileMenu(); openAuthModal('login');" class="btn-glass" style="width: 100%;">Masuk ke Akun</button>
+          <button onclick="toggleMobileMenu(); openAuthModal('register');" class="btn-primary" style="width: 100%;">Buat Undangan Baru</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section style="padding-top: 28px; padding-bottom: 36px; text-align: center;">
+    <div class="container-custom">
+      
+      <!-- Badge Pill -->
+      <div class="badge-tag" style="margin-bottom: 16px;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #0087EB;"></span>
+        Platform Undangan Digital #1 di Indonesia
+      </div>
+
+      <!-- Display Headline with Dynamic Rotating Text -->
+      <h1 class="heading-display" style="max-width: 900px; margin: 0 auto 16px;">
+        <span class="hero-title-top">Buat Undangan Digital</span>
+        <span class="hero-title-bottom">
+          untuk <span class="rotating-text-wrapper" id="rotatingText">Pernikahan</span> mu
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-subheading" style="max-width: 660px; margin: 0 auto 24px;">
+        Solusi cepat sebar undangan perayaanmu hanya dalam 10 menit. Dilengkapi fitur kelola RSVP & kado langsung via WhatsApp, amplop digital QRIS/VA, dan galeri interaktif.
+      </p>
+
+      <!-- Slug Builder Pill Form -->
+      <form onsubmit="handleSlugSubmit(event, this); return false;" 
+            class="glass-panel hero-pill-form" 
+            style="max-width: 580px; margin: 0 auto 20px; padding: 6px 8px 6px 22px; display: flex; align-items: center; border-radius: 9999px; background: rgba(255, 255, 255, 0.85);">
+        <div class="slug-prefix" style="display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; color: #0087EB; padding-right: 8px; border-right: 1px solid rgba(0, 135, 235, 0.2); white-space: nowrap;">
+          <span>undanganku.id/</span>
+        </div>
+        <input type="text" id="heroSlug" name="slug" required placeholder="nama-dan-pasangan" 
+               style="flex: 1; border: none; background: transparent; outline: none; font-family: inherit; font-size: 14.5px; color: var(--color-dark); min-width: 130px; padding: 0 10px;">
+        <button type="submit" class="btn-primary" style="padding: 12px 26px; font-size: 14px; white-space: nowrap;">
+          Buat Undangan ✨
+        </button>
+      </form>
+
+      <!-- Trust Badges -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; font-size: 13px; color: var(--color-dark-muted); font-weight: 500;">
+        <span style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Tanpa Kartu Kredit
+        </span>
+        <span>•</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Selesai dalam 10 Menit
+        </span>
+        <span>•</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          100% Mobile & WhatsApp Ready
+        </span>
+      </div>
+
+      <!-- 4 FLOATING GLASS FEATURE CARDS (Image A Parity) -->
+      <div id="hero-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1120px; margin: 0 auto;">
+        
+        <!-- Card 1: RSVP Tamu & WhatsApp -->
+        <div class="glass-panel" onclick="openSimulatorModal('rsvp')" style="padding: 22px; text-align: left; display: flex; flex-direction: column; cursor: pointer;">
+          <!-- Mini UI Mockup -->
+          <div class="mini-widget-box">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <span style="font-size: 11px; font-weight: 600; color: var(--color-dark-subtle); text-transform: uppercase;">WhatsApp RSVP</span>
+              <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981;"></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; background: rgba(0, 135, 235, 0.06); padding: 8px 12px; border-radius: 10px; border-left: 3px solid #0087EB;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: #FFE0AE; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #111827;">RA</div>
+              <div>
+                <p style="font-size: 12px; font-weight: 600; color: var(--color-dark); margin: 0;">Rian &amp; Maya</p>
+                <p style="font-size: 10.5px; color: #10B981; font-weight: 600; margin: 0;">● Pasti Hadir (2 Orang)</p>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--color-dark);">RSVP &amp; Manajemen Tamu</h3>
+          <p style="font-size: 13px; color: var(--color-dark-muted); line-height: 1.5; margin: 0;">
+            Konfirmasi kehadiran otomatis masuk ke WhatsApp dan rekap real-time di spreadsheet Anda.
+          </p>
+        </div>
+
+        <!-- Card 2: Uang Hadiah Digital QRIS -->
+        <div class="glass-panel" onclick="openSimulatorModal('gift')" style="padding: 22px; text-align: left; display: flex; flex-direction: column; cursor: pointer;">
+          <!-- Mini UI Mockup -->
+          <div class="mini-widget-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 600; color: #0087EB;">AMPLOP DIGITAL</span>
+              <span style="font-size: 10.5px; background: #FFE0AE; padding: 2px 8px; border-radius: 9999px; font-weight: 700; color: #111827;">QRIS</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(0, 135, 235, 0.05); padding: 8px 12px; border-radius: 10px;">
+              <div>
+                <span style="font-size: 10px; color: var(--color-dark-subtle);">BCA: 8410294821</span>
+                <p style="font-size: 11.5px; font-weight: 700; color: var(--color-dark); margin: 0;">a.n. Dimas Nugraha</p>
+              </div>
+              <span style="font-size: 10.5px; background: #0087EB; color: white; padding: 3px 8px; border-radius: 6px; font-weight: 600;">Salin</span>
+            </div>
+          </div>
+          <h3 style="font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--color-dark);">Uang Hadiah Digital (QRIS/VA)</h3>
+          <p style="font-size: 13px; color: var(--color-dark-muted); line-height: 1.5; margin: 0;">
+            Kado amplop praktis lewat QRIS, Virtual Account, dan dompet digital langsung ke rekening Anda.
+          </p>
+        </div>
+
+        <!-- Card 3: Background Audio & Sound -->
+        <div class="glass-panel" onclick="openSimulatorModal('music')" style="padding: 22px; text-align: left; display: flex; flex-direction: column; cursor: pointer;">
+          <!-- Mini UI Mockup -->
+          <div class="mini-widget-box">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+              <span style="font-size: 11px; color: var(--color-dark-subtle); font-weight: 600;">Lagu Romantis</span>
+              <span style="font-size: 11px; color: #0087EB; font-weight: 700;">🎵 Autoplay</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: #0087EB; color: white; display: flex; align-items: center; justify-content: center; font-size: 10px;">▶</div>
+              <div style="flex: 1; height: 6px; background: rgba(0, 135, 235, 0.12); border-radius: 9999px; overflow: hidden;">
+                <div style="width: 65%; height: 100%; background: #0087EB;"></div>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--color-dark);">Musik Latar &amp; Video</h3>
+          <p style="font-size: 13px; color: var(--color-dark-muted); line-height: 1.5; margin: 0;">
+            Sentuhan audio romantis yang memukau dengan opsi upload lagu kustom atau pilih koleksi kami.
+          </p>
+        </div>
+
+        <!-- Card 4: Hitung Mundur & Kalender Acara -->
+        <div class="glass-panel" onclick="openSimulatorModal('countdown')" style="padding: 22px; text-align: left; display: flex; flex-direction: column; cursor: pointer;">
+          <!-- Mini UI Mockup -->
+          <div class="mini-widget-box">
+            <div style="display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 600; color: var(--color-dark-subtle); margin-bottom: 4px;">
+              <span>HARI</span><span>JAM</span><span>MNT</span><span>DTK</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: #0087EB;">
+              <span>14</span>:<span>08</span>:<span>24</span>:<span>45</span>
+            </div>
+          </div>
+          <h3 style="font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--color-dark);">Hitung Mundur &amp; Maps</h3>
+          <p style="font-size: 13px; color: var(--color-dark-muted); line-height: 1.5; margin: 0;">
+            Countdown real-time menuju hari H dilengkapi integrasi Google Maps dan pengingat kalender.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS SOCIAL PROOF CAPSULE -->
+  <section style="padding: 0 0 24px;">
+    <div class="container-custom">
+      <div class="glass-pill" style="max-width: 960px; margin: 0 auto; padding: 20px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+        <div>
+          <div style="font-size: 26px; font-weight: 700; color: #0087EB; letter-spacing: -0.02em;">500+</div>
+          <div style="font-size: 13px; color: var(--color-dark-muted);">Pasangan Berbahagia</div>
+        </div>
+        <div>
+          <div style="font-size: 26px; font-weight: 700; color: var(--color-dark); letter-spacing: -0.02em;">50+</div>
+          <div style="font-size: 13px; color: var(--color-dark-muted);">Wedding Planner Mitra</div>
+        </div>
+        <div>
+          <div style="font-size: 26px; font-weight: 700; color: #0087EB; letter-spacing: -0.02em;">10.000+</div>
+          <div style="font-size: 13px; color: var(--color-dark-muted);">Tamu Terlayani</div>
+        </div>
+        <div>
+          <div style="font-size: 26px; font-weight: 700; color: var(--color-dark); letter-spacing: -0.02em;">Rp 2 Milyar+</div>
+          <div style="font-size: 13px; color: var(--color-dark-muted);">Hadiah Digital Terkirim</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS SHOWCASE WITH TABS (Image A Parity) -->
+  <section id="fitur" class="section-spacing">
+    <div class="container-custom">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="badge-tag">Fitur Unggulan</div>
+        <h2 class="heading-section" style="max-width: 720px; margin: 0 auto 20px;">
+          Semua Tersedia untuk<br/>Momen Perayaan Sempurna
+        </h2>
+
+        <!-- Interactive Pill Tabs -->
+        <div class="glass-pill tab-buttons-container" style="display: inline-flex; padding: 4px; gap: 4px;">
+          <button class="tab-btn active" onclick="switchSolutionTab(this, 'rsvp')" style="background: #0087EB; color: #FFFFFF; border: none; border-radius: 9999px; padding: 8px 22px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;">RSVP &amp; Tamu</button>
+          <button class="tab-btn" onclick="switchSolutionTab(this, 'gift')" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 8px 22px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Amplop QRIS</button>
+          <button class="tab-btn" onclick="switchSolutionTab(this, 'gallery')" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 8px 22px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Galeri &amp; Musik</button>
+          <button class="tab-btn" onclick="switchSolutionTab(this, 'domain')" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 8px 22px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Domain &amp; Privasi</button>
+        </div>
+      </div>
+
+      <!-- Two-Column Showcase Display -->
+      <div class="solutions-grid" style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: center; max-width: 1040px; margin: 0 auto;">
+        
+        <!-- Left Side: Copy & CTA -->
+        <div class="glass-panel" style="padding: 44px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+          <h3 id="solution-title" style="font-size: 30px; font-weight: 600; line-height: 1.22; letter-spacing: -0.025em; margin-bottom: 16px; color: var(--color-dark);">
+            Kelola Konfirmasi Kehadiran Tamu dengan Akurat
+          </h3>
+          <p id="solution-desc" style="font-size: 15px; color: var(--color-dark-muted); line-height: 1.6; margin-bottom: 28px;">
+            Tamu dapat langsung mengonfirmasi kehadiran beserta jumlah pendamping hanya dengan 1-klik di WhatsApp. Data tersimpan rapi dan dapat diexport ke file Excel/CSV.
+          </p>
+          <div>
+            <button onclick="openSimulatorModal('preview')" class="btn-primary" style="padding: 11px 26px; font-size: 14px;">
+              Lihat Contoh Undangan
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side: Detailed Glass Invitation Mockup -->
+        <div class="glass-panel" style="padding: 32px; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(177, 227, 255, 0.45) 100%);">
+          
+          <div id="solution-mockup-container">
+            <!-- Default RSVP Mockup Widget -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(0, 135, 235, 0.1);">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFE0AE, #0087EB); padding: 2px;">
+                  <div style="width: 100%; height: 100%; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0087EB;">RJ</div>
+                </div>
+                <div>
+                  <h4 style="font-size: 16px; font-weight: 600; color: var(--color-dark); margin: 0;">Romeo &amp; Juliet</h4>
+                  <p style="font-size: 12px; color: var(--color-dark-subtle); margin: 0;">Sabtu, 24 Oktober 2026 • Grand Ballroom Jakarta</p>
+                </div>
+              </div>
+              <span style="background: rgba(16, 185, 129, 0.1); color: #10B981; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 9999px;">Undangan Aktif</span>
+            </div>
+
+            <!-- Interactive Live Guest RSVP Feed inside Glass -->
+            <div style="background: rgba(255, 255, 255, 0.9); border-radius: 18px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 135, 235, 0.08); border: 1px solid #FFFFFF;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <span style="font-weight: 600; font-size: 13.5px; color: var(--color-dark);">Rekap Kehadiran Real-time</span>
+                <span style="font-size: 12px; font-weight: 700; color: #0087EB;">184 Hadir / 200 Tamu</span>
+              </div>
+              
+              <!-- RSVP List items -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 14px; border-radius: 12px; border-left: 3px solid #10B981;">
+                  <div>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--color-dark);">Sarah &amp; Kevin</span>
+                    <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0;">“Selamat untuk Romeo &amp; Juliet! Semoga bahagia selalu ❤️”</p>
+                  </div>
+                  <span style="font-size: 11.5px; font-weight: 700; color: #10B981; background: white; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">2 Tamu</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 14px; border-radius: 12px; border-left: 3px solid #0087EB;">
+                  <div>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--color-dark);">Dimas Pratama</span>
+                    <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0;">“Lancar sampai hari H sobatku! 🥂”</p>
+                  </div>
+                  <span style="font-size: 11.5px; font-weight: 700; color: #0087EB; background: white; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">1 Tamu</span>
+                </div>
+              </div>
+
+              <!-- Quick Action Bar -->
+              <div style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed rgba(0, 135, 235, 0.15); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 12px; color: var(--color-dark-subtle);">Sinkronisasi otomatis dengan WhatsApp</span>
+                <button onclick="showToast('Data RSVP di-export ke Excel (CSV)')" class="btn-glass" style="padding: 4px 12px; font-size: 11.5px;">Export CSV</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTEGRATED TOOLS / PERBANKAN CAPSULE (Image A Orbital Tracks) -->
+  <section style="padding: 16px 0 28px; position: relative;">
+    <div class="container-custom">
+      <div class="glass-panel integrated-tools-panel">
+        
+        <!-- SVG Orbital Lines Background matching Image A aesthetic -->
+        <svg class="orbital-svg-track" viewBox="0 0 980 140" fill="none" preserveAspectRatio="none">
+          <path d="M-20 70 C 240 10, 480 130, 1000 70" class="orbital-path-line" />
+          <path d="M-20 70 C 240 130, 480 10, 1000 70" class="orbital-path-line-secondary" />
+          <circle cx="270" cy="46" r="3.5" fill="#0087EB" opacity="0.7">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="700" cy="94" r="3.5" fill="#FFE0AE" opacity="0.8">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+
+        <!-- Left Integrations Nodes (QRIS, GoPay, ShopeePay) -->
+        <div class="orbit-nodes-wrapper">
+          <!-- QRIS -->
+          <div class="orbit-badge badge-qris" title="QRIS Amplop Digital Nasional" onclick="showToast('QRIS Nasional didukung semua e-Wallet & Bank')">
+            <img src="assets/payments/logo-qris.png" alt="QRIS" />
+          </div>
+          <!-- GoPay -->
+          <div class="orbit-badge badge-gopay" title="GoPay e-Wallet" onclick="showToast('Integrasi GoPay siap digunakan')">
+            <img src="assets/payments/logo-gopay.png" alt="GoPay" />
+          </div>
+          <!-- ShopeePay -->
+          <div class="orbit-badge badge-shopeepay" title="ShopeePay e-Wallet" onclick="showToast('Integrasi ShopeePay siap digunakan')">
+            <img src="assets/payments/logo-shopeepay.jpg" alt="ShopeePay" />
+          </div>
+        </div>
+
+        <!-- Center Label -->
+        <div style="text-align: center; flex: 1; min-width: 300px; max-width: 500px; position: relative; z-index: 2;">
+          <h3 style="font-size: 20px; font-weight: 600; color: var(--color-dark); letter-spacing: -0.02em;">
+            Terhubung dengan Pembayaran Digital
+          </h3>
+          <p style="font-size: 13px; color: var(--color-dark-subtle); margin-top: 4px; line-height: 1.45;">
+            Terima kado amplop digital via QRIS, e-Wallet, Flip, &amp; Kartu tanpa potongan ribet
+          </p>
+        </div>
+
+        <!-- Right Integrations Nodes (Flip, Visa, Mastercard) -->
+        <div class="orbit-nodes-wrapper">
+          <!-- Flip -->
+          <div class="orbit-badge badge-flip" title="Flip Bebas Biaya Transfer" onclick="showToast('Integrasi Flip siap digunakan')">
+            <img src="assets/payments/logo-flip.png" alt="Flip" />
+          </div>
+          <!-- Visa -->
+          <div class="orbit-badge badge-visa" title="Visa Card" onclick="showToast('Pembayaran Kartu Visa didukung')">
+            <img src="assets/payments/logo-visa.png" alt="Visa" />
+          </div>
+          <!-- Mastercard -->
+          <div class="orbit-badge badge-mastercard" title="Mastercard" onclick="showToast('Pembayaran Kartu Mastercard didukung')">
+            <img src="assets/payments/logo-mastercard.jpg" alt="Mastercard" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPLATE SHOWCASE SECTION (Siap Kamu Pakai) -->
+  <section id="templates" class="section-spacing">
+    <div class="container-custom">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="badge-tag">Koleksi Desain</div>
+        <h2 class="heading-section" style="max-width: 680px; margin: 0 auto 14px;">
+          Berbagai Template<br/>Siap Kamu Pakai
+        </h2>
+        <p class="text-subheading" style="max-width: 580px; margin: 0 auto 18px;">
+          Nikmati banyak pilihan desain profesional untuk berbagai momen berharga Anda.
+        </p>
+
+        <!-- Template Filter Pills -->
+        <div class="glass-pill tab-buttons-container" style="display: inline-flex; padding: 4px; gap: 4px; margin-bottom: 20px;">
+          <button class="template-filter-btn active" onclick="filterTemplates('all', this)" style="background: #0087EB; color: #FFFFFF; border: none; border-radius: 9999px; padding: 7px 20px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Semua</button>
+          <button class="template-filter-btn" onclick="filterTemplates('pernikahan', this)" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 7px 20px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Pernikahan</button>
+          <button class="template-filter-btn" onclick="filterTemplates('wisuda', this)" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 7px 20px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Wisuda</button>
+          <button class="template-filter-btn" onclick="filterTemplates('ulangtahun', this)" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 7px 20px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Ulang Tahun</button>
+          <button class="template-filter-btn" onclick="filterTemplates('anniversary', this)" style="background: transparent; color: var(--color-dark-muted); border: none; border-radius: 9999px; padding: 7px 20px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.2s;">Anniversary</button>
+        </div>
+      </div>
+
+      <!-- 6 Templates Grid with Real Uploaded Examples -->
+      <div class="templates-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; max-width: 1120px; margin: 0 auto;">
+        
+        <!-- Template 1 (Atas Kiri): Cahaya & Muhammad (VIP) -->
+        <article class="template-card glass-panel" data-category="pernikahan">
+          <div class="template-image-container">
+            <img src="assets/templates/template-cahaya-muhammad.png" alt="Template Cahaya & Muhammad" style="object-position: center 15%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-vip">VIP</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Cahaya &amp; Muhammad</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">syar'i elegance • masjid aesthetic • sage botanical</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('cahaya')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'vip', 'cahaya-muhammad')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Template 2 (Atas Tengah): Susilo & Dewi (Gratis) -->
+        <article class="template-card glass-panel" data-category="pernikahan">
+          <div class="template-image-container">
+            <img src="assets/templates/template-susilo-dewi.png" alt="Template Susilo & Dewi" style="object-position: center 15%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-gratis">Gratis</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Susilo &amp; Dewi</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">adat jawa • ukiran wayang • batik coklat elegan</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('susilo')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'gratis', 'susilo-dewi')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Template 3 (Atas Kanan): Dita & Santo (Premium) -->
+        <article class="template-card glass-panel" data-category="pernikahan">
+          <div class="template-image-container">
+            <img src="assets/templates/template-dita-santo.png" alt="Template Dita & Santo" style="object-position: center 25%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-premium">Premium</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Dita &amp; Santo</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">tradisional sunda • melati ronce • frame floral</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('dita')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'premium', 'dita-santo')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Template 4 (Bawah Kiri): Daniel & Donna (Gratis) -->
+        <article class="template-card glass-panel" data-category="pernikahan anniversary">
+          <div class="template-image-container">
+            <img src="assets/templates/template-daniel-donna.png" alt="Template Daniel & Donna" style="object-position: center 20%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-gratis">Gratis</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Daniel &amp; Donna</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">rustic watercolor • white dahlia • sage foliage</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('daniel')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'gratis', 'daniel-donna')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Template 5 (Bawah Tengah): Rosa Maria & Daniel (VIP) -->
+        <article class="template-card glass-panel" data-category="pernikahan">
+          <div class="template-image-container">
+            <img src="assets/templates/template-rosamaria-daniel.png" alt="Template Rosa Maria & Daniel" style="object-position: center 15%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-vip">VIP</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Rosa Maria &amp; Daniel</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">adat bali mewah • mahkota emas • royal black gold</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('rosamaria')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'vip', 'rosamaria-daniel')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Template 6 (Bawah Kanan): Dewi & Angga (Gratis) -->
+        <article class="template-card glass-panel" data-category="pernikahan ulangtahun">
+          <div class="template-image-container">
+            <img src="assets/templates/template-dewi-angga.jpg" alt="Template Dewi & Angga" style="object-position: center 20%;">
+            <div style="position: absolute; bottom: 12px; left: 14px;">
+              <span class="template-badge-gratis">Gratis</span>
+            </div>
+          </div>
+          <div style="padding: 22px;">
+            <h3 style="font-size: 18px; font-weight: 600; color: var(--color-dark); margin-bottom: 4px;">Dewi &amp; Angga</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 18px;">gold ornament frame • pastel peach floral • modern serif</p>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="openSimulatorModal('dewi')" class="btn-glass" style="flex: 1; padding: 9px;">Live Demo</button>
+              <button onclick="openAuthModal('register', 'gratis', 'dewi-angga')" class="btn-primary" style="flex: 1; padding: 9px;">Pilih Template</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING SECTION (Harga Transparan - 3 Tiers) -->
+  <section id="pricing" class="section-spacing">
+    <div class="container-custom">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div class="badge-tag">Harga Transparan</div>
+        <h2 class="heading-section" style="max-width: 680px; margin: 0 auto 14px;">
+          Pilih Paket Terbaik<br/>untuk Hari Bahagiamu
+        </h2>
+        <p class="text-subheading" style="max-width: 520px; margin: 0 auto;">
+          Bayar per undangan, tanpa langganan bulanan. Semua harga sudah termasuk PPN.
+        </p>
+      </div>
+
+      <!-- Pricing Bento Grid -->
+      <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1120px; margin: 0 auto; align-items: stretch;">
+        
+        <!-- Plan 1: Gratis -->
+        <div class="pricing-card glass-panel">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Gratis</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 24px;">Cocok untuk acara kecil atau mencoba platform kami.</p>
+            <div style="margin-bottom: 28px;">
+              <span style="font-size: 38px; font-weight: 700; color: var(--color-dark);">Rp 0</span>
+              <span style="font-size: 13px; color: var(--color-dark-subtle);">/undangan</span>
+            </div>
+            
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--color-dark-muted); margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Maksimal 10 Undangan</strong>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Akses Template Classic
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                RSVP &amp; Ucapan Tamu Digital
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Kado: Transfer Bank manual
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-dark-subtle);">
+                <span style="color: #9CA3AF; margin-right: 4px;">✕</span>
+                Watermark Undanganku.id
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openAuthModal('register', 'gratis')" class="btn-glass" style="width: 100%; padding: 12px;">Mulai Gratis</button>
+        </div>
+
+        <!-- Plan 2: Premium (Paling Populer) -->
+        <div class="pricing-card glass-panel popular">
+          <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #FFE0AE; color: #111827; font-size: 11.5px; font-weight: 700; padding: 4px 18px; border-radius: 9999px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); text-transform: uppercase;">
+            Paling Populer
+          </div>
+
+          <div>
+            <h3 style="font-size: 20px; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Premium</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 24px;">Pilihan terfavorit dengan fitur lengkap tanpa batas.</p>
+            <div style="margin-bottom: 28px;">
+              <span style="font-size: 38px; font-weight: 700; color: #0087EB;">Rp 2.500</span>
+              <span style="font-size: 13px; color: var(--color-dark-subtle);">/undangan</span>
+            </div>
+            
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--color-dark); margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Jumlah Undangan Tanpa Batas</strong>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Akses Seluruh Template Desain</strong>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                RSVP Otomatis Langsung ke WhatsApp
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Hadiah: QRIS, VA &amp; e-Wallet Otomatis
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Upload Musik Romantis Kustom
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Tanpa Watermark &amp; Slug Kustom
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0087EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Export CSV Buku Tamu &amp; Rekap Kado
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openAuthModal('register', 'premium')" class="btn-primary" style="width: 100%; padding: 13px; font-size: 15px;">Pilih Paket Premium</button>
+        </div>
+
+        <!-- Plan 3: VIP -->
+        <div class="pricing-card glass-panel">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">VIP</h3>
+            <p style="font-size: 13px; color: var(--color-dark-muted); margin-bottom: 24px;">Fitur kustom domain dan check-in barcode di lokasi.</p>
+            <div style="margin-bottom: 28px;">
+              <span style="font-size: 38px; font-weight: 700; color: var(--color-dark);">Rp 5.000</span>
+              <span style="font-size: 13px; color: var(--color-dark-subtle);">/undangan</span>
+            </div>
+            
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--color-dark-muted); margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Semua Fitur Paket Premium</strong>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Akses Template Eksklusif Ultra-HD
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Custom Domain (namakamu.com)
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Buku Tamu QR Code Check-in Resepsi
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dukungan Prioritas VIP WhatsApp 24/7
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openAuthModal('register', 'vip')" class="btn-glass" style="width: 100%; padding: 12px;">Pilih Paket VIP</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION (BENTO GRID - Image A Parity) -->
+  <section id="testimoni" class="section-spacing">
+    <div class="container-custom">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div class="badge-tag">Cerita Kebahagiaan</div>
+        <h2 class="heading-section" style="max-width: 680px; margin: 0 auto 14px;">
+          Dipercaya Pasangan &amp;<br/>Event Organizer Indonesia
+        </h2>
+        <p class="text-subheading" style="max-width: 540px; margin: 0 auto;">
+          Ribuan momen bahagia telah dibagikan dengan penuh kesan bersama Undanganku.id.
+        </p>
+      </div>
+
+      <!-- Bento Grid (4 Cards matching Image A) -->
+      <div class="testimonials-bento" style="display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 24px; max-width: 1120px; margin: 0 auto;">
+        
+        <!-- Card 1: Featured Left Card (Deep Electric Blue Gradient) -->
+        <div class="glass-panel" style="padding: 36px 32px; background: linear-gradient(145deg, #0087EB 0%, #0060A8 100%); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.25); display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 25px 50px -12px rgba(0, 135, 235, 0.4);">
+          <div>
+            <div style="font-size: 32px; line-height: 1; opacity: 0.6; margin-bottom: 16px;">“</div>
+            <p style="font-size: 16px; line-height: 1.65; font-weight: 400; margin-bottom: 28px; color: rgba(255, 255, 255, 0.95);">
+              Bikin undangan cuma 10 menit, langsung bisa dibagikan ke semua tamu lewat WhatsApp. Tamu juga bisa konfirmasi RSVP langsung dari HP dan transfer kado lewat QRIS — praktis banget tanpa ribet!
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 20px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #FFE0AE; color: #111827; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">RA</div>
+            <div>
+              <h4 style="font-size: 15px; font-weight: 600; margin: 0; color: #FFFFFF;">Rina &amp; Andi</h4>
+              <p style="font-size: 12.5px; color: rgba(255, 255, 255, 0.8); margin: 0;">Pernikahan di Jakarta</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Column: Stacked 2 Cards -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <!-- Card 2: Center Top -->
+          <div class="glass-panel" style="padding: 28px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <p style="font-size: 14px; line-height: 1.6; color: var(--color-dark); margin-bottom: 20px;">
+              “Sudah bantu 20+ pasangan klien pakai Undanganku. Fitur RSVP &amp; ucapan tamu bikin kami hemat banyak waktu, dan tampilannya selalu terlihat sangat mewah.”
+            </p>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(0, 135, 235, 0.15); color: #0087EB; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">DL</div>
+              <div>
+                <h4 style="font-size: 13.5px; font-weight: 600; color: var(--color-dark); margin: 0;">Dewi Lestari</h4>
+                <p style="font-size: 11.5px; color: var(--color-dark-subtle); margin: 0;">Wedding Planner, Bandung</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Center Bottom -->
+          <div class="glass-panel" style="padding: 28px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <p style="font-size: 14px; line-height: 1.6; color: var(--color-dark); margin-bottom: 20px;">
+              “Awalnya ragu karena bukan orang IT, ternyata gampang banget. Template-nya cantik, kado digital juga langsung masuk rekening tanpa ribet.”
+            </p>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 224, 174, 0.6); color: #111827; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">BS</div>
+              <div>
+                <h4 style="font-size: 13.5px; font-weight: 600; color: var(--color-dark); margin: 0;">Budi Santoso</h4>
+                <p style="font-size: 11.5px; color: var(--color-dark-subtle); margin: 0;">Ulang Tahun Anak, Surabaya</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card 4: Right Tall Card -->
+        <div class="glass-panel" style="padding: 36px 32px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; gap: 4px; color: #F59E0B; margin-bottom: 16px;">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p style="font-size: 15px; line-height: 1.65; color: var(--color-dark); margin-bottom: 28px;">
+              “Tamu undangan dari luar negeri dan luar kota sangat terkesan. Fitur Google Maps akurat memandu mereka sampai ke lokasi resepsi di Uluwatu tanpa ada yang tersesat.”
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(0, 135, 235, 0.1); padding-top: 20px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #B1E3FF; color: #0060A8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">KJ</div>
+            <div>
+              <h4 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--color-dark);">Kevin &amp; Jessica</h4>
+              <p style="font-size: 12.5px; color: var(--color-dark-subtle); margin: 0;">Resepsi di Bali</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION ACCORDION -->
+  <section id="faq" class="section-spacing">
+    <div class="container-custom" style="max-width: 860px;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="badge-tag">FAQ</div>
+        <h2 class="heading-section">
+          Pertanyaan Sering Diajukan
+        </h2>
+        <p class="text-subheading" style="margin-top: 10px;">
+          Jawaban lengkap untuk pertanyaan umum seputar platform Undanganku.id
+        </p>
+      </div>
+
+      <!-- FAQ Items List -->
+      <div class="faq-list">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah Undanganku.id benar-benar gratis?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            Ya, tersedia paket Gratis hingga maksimal 10 undangan dengan akses template, RSVP &amp; ucapan tamu digital, serta kado transfer bank. Untuk acara yang lebih besar, Anda dapat beralih ke paket Premium (Rp 2.500/undangan) atau paket VIP (Rp 5.000/undangan) tanpa langganan bulanan.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apa saja metode pembayaran hadiah digital yang didukung?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            Kami mendukung QRIS (GoPay, OVO, Dana, ShopeePay, LinkAja) dan Virtual Account semua bank utama di Indonesia (BCA, Mandiri, BNI, BRI, Permata). Seluruh transaksi diproses aman melalui payment gateway resmi berlisensi Bank Indonesia.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Berapa lama waktu yang dibutuhkan untuk membuat undangan?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            Hanya butuh sekitar 5 sampai 10 menit! Anda cukup memilih template yang disukai, mengisi nama acara, tanggal, lokasi, mengunggah foto, dan tautan undangan siap dibagikan ke WhatsApp tamu.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah saya bisa menggunakan domain sendiri seperti rina-andi.com?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            Tentu saja! Fitur Custom Domain tersedia pada paket Premium VIP. Tim kami akan membantu konfigurasi domain pribadi Anda (.com, .id, dll) hingga aktif sempurna.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah data tamu dan privasi undangan terjamin aman?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            Sangat aman. Kami menggunakan enkripsi SSL/TLS 256-bit standar industri, proteksi password khusus untuk undangan privat, dan sistem kami sepenuhnya patuh pada Undang-Undang Pelindungan Data Pribadi (UU PDP) Indonesia.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA BANNER (Image A Parity) -->
+  <section style="padding: 24px 0 48px;">
+    <div class="container-custom">
+      <div class="glass-panel" style="max-width: 980px; margin: 0 auto; padding: 44px 32px; text-align: center; background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(177, 227, 255, 0.4) 100%);">
+        
+        <h2 class="heading-section" style="max-width: 640px; margin: 0 auto 14px;">
+          Siap Membuat Undangan Impian Anda?
+        </h2>
+        <p class="text-subheading" style="max-width: 540px; margin: 0 auto 28px;">
+          Bergabung bersama 500+ pasangan dan event organizer yang merayakan momen berharga mereka dengan elegan bersama Undanganku.id.
+        </p>
+
+        <!-- Slug CTA Form -->
+        <form onsubmit="handleSlugSubmit(event, this); return false;" 
+              class="glass-panel hero-pill-form" 
+              style="max-width: 540px; margin: 0 auto; padding: 6px 8px 6px 20px; display: flex; align-items: center; border-radius: 9999px; background: rgba(255, 255, 255, 0.95);">
+          <div class="slug-prefix" style="display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; color: #0087EB; padding-right: 8px; border-right: 1px solid rgba(0, 135, 235, 0.2); white-space: nowrap;">
+            <span>undanganku.id/</span>
+          </div>
+          <input type="text" name="slug" required placeholder="nama-acara-anda" 
+                 style="flex: 1; border: none; background: transparent; outline: none; font-family: inherit; font-size: 14.5px; color: var(--color-dark); min-width: 120px; padding: 0 10px;">
+          <button type="submit" class="btn-primary" style="padding: 12px 26px; font-size: 14px; white-space: nowrap;">
+            Mulai Sekarang Gratis
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 32px 0 40px; border-top: 1px solid rgba(0, 135, 235, 0.08); background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);">
+    <div class="container-custom">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 28px;">
+        
+        <!-- Brand Info -->
+        <div style="max-width: 340px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+            <div style="width: 30px; height: 30px; border-radius: 8px; background: #0087EB; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.5 0 4 2 4 4.5V17z"></path><polyline points="2 9.5 12 15 22 9.5"></polyline></svg>
+            </div>
+            <span style="font-weight: 700; font-size: 19px; color: var(--color-dark); letter-spacing: -0.03em;">Undanganku<span style="color: #0087EB;">.id</span></span>
+          </div>
+          <p style="font-size: 13.5px; color: var(--color-dark-muted); line-height: 1.6; margin-bottom: 16px;">
+            Platform undangan digital website Indonesia dengan fitur RSVP WhatsApp, kado amplop digital QRIS, dan desain modern kelas dunia.
+          </p>
+          <p style="font-size: 12px; color: var(--color-dark-subtle);">
+            Dikelola oleh <strong>PT ENRICO MULYA SEJAHTERA</strong>
+          </p>
+        </div>
+
+        <!-- Links Columns -->
+        <div style="display: flex; gap: 48px; flex-wrap: wrap;">
+          <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--color-dark); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Produk</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
+              <a href="#fitur" style="color: var(--color-dark-muted); text-decoration: none;">Fitur Unggulan</a>
+              <a href="#templates" style="color: var(--color-dark-muted); text-decoration: none;">Koleksi Template</a>
+              <a href="#pricing" style="color: var(--color-dark-muted); text-decoration: none;">Daftar Harga</a>
+              <a href="#templates" style="color: var(--color-dark-muted); text-decoration: none;">Undangan Pernikahan</a>
+              <a href="#templates" style="color: var(--color-dark-muted); text-decoration: none;">Undangan Wisuda</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--color-dark); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Bantuan</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
+              <a href="#faq" style="color: var(--color-dark-muted); text-decoration: none;">FAQ</a>
+              <a href="#" onclick="showToast('Menghubungi Customer Support via WhatsApp...'); return false;" style="color: var(--color-dark-muted); text-decoration: none;">Hubungi WhatsApp</a>
+              <a href="#" style="color: var(--color-dark-muted); text-decoration: none;">Kebijakan Privasi</a>
+              <a href="#" style="color: var(--color-dark-muted); text-decoration: none;">Syarat &amp; Ketentuan</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div style="padding-top: 24px; border-top: 1px solid rgba(0, 135, 235, 0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <p style="font-size: 12.5px; color: var(--color-dark-subtle); margin: 0;">
+          © 2026 Undanganku.id. Hak cipta dilindungi undang-undang.
+        </p>
+        <div style="display: flex; gap: 16px;">
+          <a href="https://instagram.com/undangankuid" target="_blank" rel="noopener noreferrer" style="color: var(--color-dark-subtle); text-decoration: none; font-size: 13px;">Instagram</a>
+          <a href="https://tiktok.com/@undangankuid" target="_blank" rel="noopener noreferrer" style="color: var(--color-dark-subtle); text-decoration: none; font-size: 13px;">TikTok</a>
+          <a href="https://linkedin.com/company/undanganku-id" target="_blank" rel="noopener noreferrer" style="color: var(--color-dark-subtle); text-decoration: none; font-size: 13px;">LinkedIn</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: INTERACTIVE MOBILE INVITATION SIMULATOR
+       ========================================================================== -->
+  <div id="simulatorModal" class="modal-backdrop" aria-hidden="true" onclick="handleSimulatorBackdrop(event)">
+    <div class="phone-simulator-modal" role="dialog" aria-modal="true" style="position: relative;">
+      
+      <!-- Phone Top Control Bar -->
+      <div style="background: #111827; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; color: white; font-size: 11.5px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span>09:41</span>
+          <span id="simulatorTemplateTitle" style="color: #9CA3AF; font-size: 11px; font-weight: 500;">Live Demo</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a id="simExternalLink" href="#" target="_blank" class="sim-external-link" title="Buka di tab baru" style="color: #38BDF8; text-decoration: none; font-size: 11px; display: inline-flex; align-items: center; gap: 4px; background: rgba(56, 189, 248, 0.15); padding: 3px 8px; border-radius: 6px;">
+            <span>Tab Penuh</span> ↗
+          </a>
+          <button onclick="closeSimulatorModal()" aria-label="Tutup simulator" style="width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.15); color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; line-height: 1;">✕</button>
+        </div>
+      </div>
+
+      <!-- Phone Screen with Live iFrame -->
+      <div class="phone-screen" id="phoneScreen" style="height: 640px; overflow: hidden; background: #000;">
+        <iframe id="phoneFrame" src="" style="width: 100%; height: 100%; border: none; display: block;" allow="autoplay" loading="lazy"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: BUAT UNDANGAN / MASUK MODAL DIALOG
+       ========================================================================== -->
+  <div id="authModal" class="modal-backdrop" aria-hidden="true" onclick="handleAuthBackdrop(event)">
+    <div class="modal-content glass-panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      
+      <!-- Close Button -->
+      <button class="modal-close-btn" onclick="closeAuthModal()" aria-label="Tutup dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <!-- Tabs Switcher -->
+      <div style="display: flex; background: rgba(0, 135, 235, 0.06); border-radius: 9999px; padding: 4px; margin-bottom: 24px;">
+        <button id="authTabRegister" onclick="switchAuthTab('register')" style="flex: 1; padding: 9px 16px; border: none; background: #FFFFFF; color: #0087EB; border-radius: 9999px; font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 135, 235, 0.1);">Buat Undangan</button>
+        <button id="authTabLogin" onclick="switchAuthTab('login')" style="flex: 1; padding: 9px 16px; border: none; background: transparent; color: var(--color-dark-muted); border-radius: 9999px; font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer;">Masuk</button>
+      </div>
+
+      <!-- PANE 1: BUAT UNDANGAN BARU -->
+      <div id="authPaneRegister">
+        <div style="margin-bottom: 20px;">
+          <h3 id="authTitle" style="font-size: 22px; font-weight: 600; color: var(--color-dark); letter-spacing: -0.02em;">Mulai Buat Undangan</h3>
+          <p style="font-size: 13.5px; color: var(--color-dark-muted); margin-top: 4px;">Selesai dalam 10 menit tanpa kartu kredit.</p>
+        </div>
+
+        <form onsubmit="handleRegisterSubmit(event)">
+          <div style="margin-bottom: 14px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Jenis Acara</label>
+            <select id="regEventType" class="modal-input-field">
+              <option value="pernikahan" selected>💍 Pernikahan / Walimatul 'Ursy</option>
+              <option value="wisuda">🎓 Wisuda / Graduation</option>
+              <option value="ulangtahun">🎂 Ulang Tahun / Sweet 17</option>
+              <option value="anniversary">🌹 Ulang Tahun Pernikahan (Anniversary)</option>
+              <option value="aqiqah">👶 Aqiqah &amp; Tasyakuran Kelahiran</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 14px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Link Undangan (Slug)</label>
+            <div class="modal-slug-container">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0087EB; white-space: nowrap;">undanganku.id/</span>
+              <input type="text" id="regSlug" required placeholder="nama-dan-pasangan">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 14px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Nomor WhatsApp Aktif</label>
+            <input type="tel" id="regPhone" class="modal-input-field" required placeholder="081234567890">
+          </div>
+
+          <div style="margin-bottom: 20px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Pilihan Paket</label>
+            <select id="regPlan" class="modal-input-field">
+              <option value="premium" selected>Paket Premium (Paling Populer — Rp 2.500 / undangan)</option>
+              <option value="gratis">Paket Gratis (Rp 0 — max. 10 undangan)</option>
+              <option value="vip">Paket VIP Eksklusif (Rp 5.000 / undangan)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; height: 48px; padding: 0; font-size: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            Lanjutkan ke Dashboard Editor →
+          </button>
+        </form>
+      </div>
+
+      <!-- PANE 2: MASUK -->
+      <div id="authPaneLogin" style="display: none;">
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 22px; font-weight: 600; color: var(--color-dark); letter-spacing: -0.02em;">Masuk ke Undanganku</h3>
+          <p style="font-size: 13.5px; color: var(--color-dark-muted); margin-top: 4px;">Kelola undangan dan lihat rekap RSVP tamu Anda.</p>
+        </div>
+
+        <form onsubmit="handleLoginSubmit(event)">
+          <div style="margin-bottom: 14px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Nomor WhatsApp / Email</label>
+            <input type="text" id="loginId" class="modal-input-field" required placeholder="08123456789 atau email@anda.com">
+          </div>
+
+          <div style="margin-bottom: 18px; text-align: left;">
+            <label style="display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: var(--color-dark);">Kata Sandi</label>
+            <input type="password" class="modal-input-field" required placeholder="••••••••">
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; height: 48px; padding: 0; font-size: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            Masuk ke Akun
+          </button>
+
+          <div style="margin-top: 14px; text-align: center;">
+            <button type="button" onclick="showToast('Masuk dengan Google SSO...'); setTimeout(closeAuthModal, 1000);" class="btn-glass" style="width: 100%; height: 48px; padding: 0; font-size: 13.5px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right: 8px;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/></svg>
+              Lanjutkan dengan Google
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATION -->
+  <div id="appToast" class="toast-notification">
+    <div class="toast-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <span id="toastMessage" style="font-size: 14px; font-weight: 500; color: var(--color-dark);">Berhasil diproses</span>
+  </div>
+
+  <script src="script.js?v=7"></script>
+</body>
+</html>
