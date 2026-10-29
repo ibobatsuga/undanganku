@@ -38,17 +38,17 @@ const solutionsData = {
     title: "Kelola Konfirmasi Kehadiran Tamu dengan Akurat",
     desc: "Tamu dapat langsung mengonfirmasi kehadiran beserta jumlah pendamping hanya dengan 1-klik di WhatsApp. Data tersimpan rapi dan dapat diexport ke file Excel/CSV kapan saja.",
     mockup: `
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(0, 135, 235, 0.1);">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFE0AE, #0087EB); padding: 2px;">
-            <div style="width: 100%; height: 100%; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0087EB;">RJ</div>
+      <div class="mockup-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(0, 135, 235, 0.1); gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1;">
+          <div class="couple-avatar-rj">
+            <div class="couple-avatar-rj-inner">RJ</div>
           </div>
-          <div>
-            <h4 style="font-size: 16px; font-weight: 600; color: var(--color-dark); margin: 0;">Romeo & Juliet</h4>
-            <p style="font-size: 12px; color: var(--color-dark-subtle); margin: 0;">Sabtu, 24 Oktober 2026 • Grand Ballroom Jakarta</p>
+          <div class="mockup-header-info" style="min-width: 0; flex: 1;">
+            <h4 style="font-size: 16px; font-weight: 600; color: var(--color-dark); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Romeo & Juliet</h4>
+            <p style="font-size: 12px; color: var(--color-dark-subtle); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Sabtu, 24 Oktober 2026 • Grand Ballroom Jakarta</p>
           </div>
         </div>
-        <span style="background: rgba(16, 185, 129, 0.1); color: #10B981; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 9999px;">Undangan Aktif</span>
+        <span style="flex-shrink: 0; background: rgba(16, 185, 129, 0.1); color: #10B981; font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; white-space: nowrap;">Undangan Aktif</span>
       </div>
       <div style="background: rgba(255, 255, 255, 0.9); border-radius: 18px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 135, 235, 0.08); border: 1px solid #FFFFFF;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
@@ -56,24 +56,24 @@ const solutionsData = {
           <span style="font-size: 12px; font-weight: 700; color: #0087EB;">184 Hadir / 200 Tamu</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 14px; border-radius: 12px; border-left: 3px solid #10B981;">
-            <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 12px; border-radius: 12px; border-left: 3px solid #10B981; gap: 8px;">
+            <div style="min-width: 0; flex: 1;">
               <span style="font-size: 13px; font-weight: 600; color: var(--color-dark);">Sarah & Kevin</span>
-              <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0;">“Selamat untuk Romeo & Juliet! Semoga bahagia selalu ❤️”</p>
+              <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">“Selamat untuk Romeo & Juliet! Semoga bahagia ❤️”</p>
             </div>
-            <span style="font-size: 11.5px; font-weight: 700; color: #10B981; background: white; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">2 Tamu</span>
+            <span style="flex-shrink: 0; font-size: 11px; font-weight: 700; color: #10B981; background: white; padding: 4px 8px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">2 Tamu</span>
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 14px; border-radius: 12px; border-left: 3px solid #0087EB;">
-            <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 135, 235, 0.04); padding: 10px 12px; border-radius: 12px; border-left: 3px solid #0087EB; gap: 8px;">
+            <div style="min-width: 0; flex: 1;">
               <span style="font-size: 13px; font-weight: 600; color: var(--color-dark);">Dimas Pratama</span>
-              <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0;">“Lancar sampai hari H sobatku! 🥂”</p>
+              <p style="font-size: 11px; color: var(--color-dark-subtle); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">“Lancar sampai hari H sobatku! 🥂”</p>
             </div>
-            <span style="font-size: 11.5px; font-weight: 700; color: #0087EB; background: white; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">1 Tamu</span>
+            <span style="flex-shrink: 0; font-size: 11px; font-weight: 700; color: #0087EB; background: white; padding: 4px 8px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">1 Tamu</span>
           </div>
         </div>
-        <div style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed rgba(0, 135, 235, 0.15); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 12px; color: var(--color-dark-subtle);">Sinkronisasi otomatis dengan WhatsApp</span>
-          <button onclick="showToast('Data RSVP di-export ke Excel (CSV)')" class="btn-glass" style="padding: 4px 12px; font-size: 11.5px;">Export CSV</button>
+        <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(0, 135, 235, 0.15); display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 11.5px; color: var(--color-dark-subtle);">Sinkronisasi otomatis WhatsApp</span>
+          <button onclick="showToast('Data RSVP di-export ke Excel (CSV)')" class="btn-glass" style="padding: 4px 10px; font-size: 11px;">Export CSV</button>
         </div>
       </div>
     `
