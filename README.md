@@ -1,11 +1,11 @@
-# 💍 Undanganku.id — Platform Website & Template Undangan Pernikahan Digital
+# 💍 Nalarasa.id — Platform Website & Template Undangan Pernikahan Digital
 
 [![Vercel Production](https://img.shields.io/badge/Vercel-Production%20Live-000000?style=for-the-badge&logo=vercel)](https://undanganku-xi-six.vercel.app/)
 [![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-0087EB?style=for-the-badge&logo=github)](https://ibobatsuga.github.io/undanganku/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![HTML5 / CSS3 / Vanilla JS](https://img.shields.io/badge/Tech-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-F97316?style=for-the-badge)](https://developer.mozilla.org/)
 
-**Undanganku.id** adalah platform pembuatan undangan pernikahan digital modern berbasis web dengan estetika **Glassmorphism**, tipografi **Neue Montreal**, palet warna **Electric Blue & Peach Gold**, serta dilengkapi dengan **6 template undangan digital interaktif mandiri** dengan fitur buka amplop, audio musik romantis, hitung mundur (countdown), kado cashless, dan buku tamu / RSVP interaktif.
+**Nalarasa.id** adalah platform pembuatan undangan pernikahan digital modern berbasis web dengan estetika **Glassmorphism**, tipografi **Neue Montreal**, palet warna **Electric Blue & Peach Gold**, serta dilengkapi dengan **6 template undangan digital interaktif mandiri** dengan fitur buka amplop, audio musik romantis, hitung mundur (countdown), kado cashless, dan buku tamu / RSVP interaktif.
 
 ---
 
@@ -17,7 +17,7 @@
    - Micro-interaction 3D lift saat kartu tema di-hover.
 
 2. **Dynamic Slug & Link Generator**:
-   - Input langsung tautan undangan personal di Hero Section (`undanganku.id/nama-pasangan`).
+   - Input langsung tautan undangan personal di Hero Section (`nalarasa.id/nama-pasangan`).
    - Integrasi otomatis saat pendaftaran akun baru.
 
 3. **Orbital Payment Integration**:
@@ -60,8 +60,8 @@ Semua template beroperasi secara *client-side* mandiri tanpa ketergantungan serv
 ## 📁 Struktur Folder
 
 ```text
-undanganku/
-├── index.html                     # Landing page utama Undanganku.id
+nalarasa/
+├── index.html                     # Landing page utama Nalarasa.id
 ├── styles.css                     # Desain Glassmorphism, Neue Montreal & responsivitas
 ├── script.js                      # Interaktivitas slider, tab, modal, dan simulator
 ├── .gitignore

@@ -1,5 +1,5 @@
 // ==========================================================================
-// UNDANGANKU.ID — SCRIPT CONTROLLER
+// NALARASA.ID — SCRIPT CONTROLLER
 // ==========================================================================
 
 // 1. DYNAMIC ROTATING TEXT IN HERO (SLIDE UP)
@@ -389,9 +389,9 @@ function handleSlugSubmit(e, form) {
 function handleRegisterSubmit(e) {
   e.preventDefault();
   const slug = document.getElementById('regSlug').value;
-  showToast(`Undangan undanganku.id/${slug} berhasil dibuat!`);
+  showToast(`Undangan nalarasa.id/${slug} berhasil dibuat!`);
   setTimeout(() => {
-    alert(`Selamat! Undangan digital Anda di undanganku.id/${slug} siap disunting. Anda dialihkan ke Dashboard Editor.`);
+    alert(`Selamat! Undangan digital Anda di nalarasa.id/${slug} siap disunting. Anda dialihkan ke Dashboard Editor.`);
     closeAuthModal();
   }, 600);
 }

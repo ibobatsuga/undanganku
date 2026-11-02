@@ -1,5 +1,5 @@
 /**
- * Undanganku.id — Template Engine Core v1.0
+ * Nalarasa.id — Template Engine Core v1.0
  * Fitur: ?to= Parameter, Envelope Opener, Countdown, Audio Player, Copy Rekening, RSVP LocalStorage
  */
 
@@ -162,7 +162,8 @@ function showTemplateToast(msg) {
 
 // 7. RSVP / Guestbook LocalStorage System
 function initRsvpSystem(templateId, initialWishes = []) {
-  const storageKey = 'undanganku_rsvp_' + templateId;
+  const storageKey = 'nalarasa_rsvp_' + templateId;
+  const legacyKey = 'undanganku_rsvp_' + templateId;
   const form = document.getElementById('rsvpForm');
   const wishesList = document.getElementById('wishesList');
   const countEl = document.getElementById('wishesCount');
@@ -170,7 +171,7 @@ function initRsvpSystem(templateId, initialWishes = []) {
   // Load wishes
   let wishes = [];
   try {
-    const raw = localStorage.getItem(storageKey);
+    const raw = localStorage.getItem(storageKey) || localStorage.getItem(legacyKey);
     if (raw) {
       wishes = JSON.parse(raw);
     } else {
@@ -249,9 +250,10 @@ function initRsvpSystem(templateId, initialWishes = []) {
 }
 
 function likeWish(templateId, index, btn) {
-  const storageKey = 'undanganku_rsvp_' + templateId;
+  const storageKey = 'nalarasa_rsvp_' + templateId;
+  const legacyKey = 'undanganku_rsvp_' + templateId;
   try {
-    const wishes = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const wishes = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem(legacyKey) || '[]');
     if (wishes[index]) {
       wishes[index].likes = (wishes[index].likes || 0) + 1;
       localStorage.setItem(storageKey, JSON.stringify(wishes));
