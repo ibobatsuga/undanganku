@@ -96,37 +96,45 @@ async function fetchFolderRawEntries(folderId, categoryHint = '') {
 }
 
 async function fetchHtmlHeadMetadata(fileId) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 4000);
-  try {
-    const res = await fetch(
-      `https://drive.usercontent.google.com/download?id=${encodeURIComponent(fileId)}&export=download&confirm=t`,
-      {
+  const urls = [
+    `https://drive.usercontent.google.com/download?id=${encodeURIComponent(fileId)}&export=download&confirm=t`,
+    `https://drive.google.com/uc?export=download&id=${encodeURIComponent(fileId)}`,
+  ];
+
+  for (const endpoint of urls) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 3500);
+    try {
+      const res = await fetch(endpoint, {
         headers: {
           Range: 'bytes=0-8191',
           'User-Agent': 'Mozilla/5.0 (compatible; NalarasaTemplateSync/1.0)',
         },
+        redirect: 'follow',
         signal: controller.signal,
-      }
-    );
-    if (!res.ok && res.status !== 206) return {};
-    const chunk = await res.text();
-    const titleMatch = chunk.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-    const descMatch =
-      chunk.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i) ||
-      chunk.match(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']description["']/i);
-    const tierMatch = chunk.match(/<meta[^>]+name=["']nalarasa-tier["'][^>]+content=["']([^"']+)["']/i);
+      });
+      if (!res.ok && res.status !== 206) continue;
+      const chunk = await res.text();
+      const titleMatch = chunk.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      if (!titleMatch) continue;
 
-    return {
-      htmlTitle: titleMatch ? decodeHtmlEntities(titleMatch[1].replace(/\s+/g, ' ')) : '',
-      metaDescription: descMatch ? decodeHtmlEntities(descMatch[1].replace(/\s+/g, ' ')) : '',
-      metaTier: tierMatch ? decodeHtmlEntities(tierMatch[1]).toLowerCase() : '',
-    };
-  } catch {
-    return {};
-  } finally {
-    clearTimeout(timer);
+      const descMatch =
+        chunk.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i) ||
+        chunk.match(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']description["']/i);
+      const tierMatch = chunk.match(/<meta[^>]+name=["']nalarasa-tier["'][^>]+content=["']([^"']+)["']/i);
+
+      return {
+        htmlTitle: decodeHtmlEntities(titleMatch[1].replace(/\s+/g, ' ')),
+        metaDescription: descMatch ? decodeHtmlEntities(descMatch[1].replace(/\s+/g, ' ')) : '',
+        metaTier: tierMatch ? decodeHtmlEntities(tierMatch[1]).toLowerCase() : '',
+      };
+    } catch {
+      // Try backup endpoint
+    } finally {
+      clearTimeout(timer);
+    }
   }
+  return {};
 }
 
 function cleanSlugWords(filename) {
@@ -229,7 +237,7 @@ function inferTier(haystack, metaTier = '', index = 0) {
 }
 
 function generateOneLineHook(fileName, htmlTitle, metaDescription, id) {
-  if (metaDescription && metaDescription.length >= 18 && metaDescription.length <= 58) {
+  if (metaDescription && metaDescription.length >= 16 && metaDescription.length <= 48) {
     const oneSentence = metaDescription.split(/[.!?]/)[0].trim();
     return oneSentence.endsWith('.') ? oneSentence : `${oneSentence}.`;
   }
@@ -237,73 +245,73 @@ function generateOneLineHook(fileName, htmlTitle, metaDescription, id) {
   const s = `${fileName} ${htmlTitle}`.toLowerCase();
 
   if (s.includes('coastal') && s.includes('v2')) {
-    return 'Romantisme senja tepi tebing bernuansa terracotta.';
+    return 'Romantisme senja tebing bernuansa terracotta.';
   }
   if (/coastal|terracotta|beach|ocean|uluwatu|tropis/.test(s)) {
-    return 'Hangatnya pesona tropis tepi laut yang mengundang.';
+    return 'Hangatnya pesona tropis laut yang mengundang.';
   }
   if (/vogue|magazine/.test(s)) {
-    return 'Tampil ikonik bak sampul majalah eksklusif impian.';
+    return 'Tampil ikonik bak sampul majalah eksklusif.';
   }
   if (/noir|silver|monochrome|editorial/.test(s)) {
-    return 'Estetika monokrom modern yang tegas dan berkelas.';
+    return 'Estetika monokrom modern yang tegas berkelas.';
   }
   if (/lavender|lilac|silk/.test(s)) {
-    return 'Kelembutan nuansa lavender untuk hari penuh cinta.';
+    return 'Lembutnya nuansa lavender untuk hari bahagia.';
   }
   if (/porcelain|chinoiserie|oriental|sangjit/.test(s)) {
-    return 'Pesona porselen biru klasik yang anggun dan abadi.';
+    return 'Pesona porselen biru klasik yang anggun abadi.';
   }
   if (/watercolor|blush|maroon/.test(s)) {
-    return 'Sapuan cat air maroon lembut yang puitis memikat.';
+    return 'Sapuan cat air maroon lembut nan puitis manis.';
   }
   if (/sapphire|art[-\s]?deco|gatsby|midnight/.test(s)) {
-    return 'Glamor biru safir Art Deco untuk malam nan megah.';
+    return 'Glamor biru safir Art Deco nan begitu megah.';
   }
   if (/golden[-\s]?hour|conservatory|sunset|bandung/.test(s)) {
-    return 'Hangatnya cahaya senja keemasan yang memeluk tamu.';
+    return 'Hangatnya cahaya senja emas menyambut tamu.';
   }
   if (/emerald|javanese|jawa|borobudur|joglo|keraton/.test(s)) {
-    return 'Pesona Jawa modern berbalut zamrud yang berwibawa.';
+    return 'Pesona Jawa modern berbalut zamrud berwibawa.';
   }
   if (/syar'?i|islami|masjid|kubah|halal/.test(s)) {
-    return "Keanggunan bernuansa syar'i yang teduh menyentuh.";
+    return "Keanggunan syar'i teduh yang menyentuh hati.";
   }
   if (/sunda|melati/.test(s)) {
-    return 'Romantisme adat Sunda berbalut melati nan anggun.';
+    return 'Romantisme adat Sunda berbalut melati anggun.';
   }
   if (/bali|royal|mahkota/.test(s)) {
-    return 'Kemegahan royal emas untuk perayaan paling megah.';
+    return 'Kemegahan royal emas untuk perayaan berkelas.';
   }
   if (/minang|gadang|suntiang/.test(s)) {
-    return 'Kemilau adat Minang megah yang memukau mata tamu.';
+    return 'Kemilau adat Minang megah memukau mata tamu.';
   }
   if (/batak|ulos/.test(s)) {
-    return 'Kehangatan tradisi sakral dalam balutan elegan.';
+    return 'Kehangatan tradisi sakral berbalut keanggunan.';
   }
   if (/rustic|botanical|garden|sage|foliage|floral/.test(s)) {
-    return 'Kesegaran taman bunga romantis yang memikat hati.';
+    return 'Kesegaran taman bunga romantis pemikat hati.';
   }
   if (/pastel|peach|pink|rose/.test(s)) {
-    return 'Manisnya rona pastel lembut yang hangat menawan.';
+    return 'Manisnya rona pastel lembut nan menghangatkan.';
   }
   if (/wisuda|graduat/.test(s)) {
-    return 'Rayakan momen kelulusan bangga penuh gaya modern.';
+    return 'Rayakan kelulusan penuh bangga dan gaya modern.';
   }
   if (/ulang[-\s]?tahun|birthday|sweet/.test(s)) {
-    return 'Undangan pesta meriah yang bikin tamu tak sabar.';
+    return 'Undangan pesta meriah yang bikin tak sabar.';
   }
   if (/aqiqah|tasmiyah/.test(s)) {
-    return 'Sambut buah hati tercinta dengan syukuran hangat.';
+    return 'Sambut buah hati tercinta penuh doa hangat.';
   }
 
   const curatedHooks = [
-    'Desain sinematik eksklusif yang memikat sejak awal.',
-    'Sentuhan elegan modern untuk momen sekali seumur.',
-    'Sambut tamu spesial dengan pesona visual berkelas.',
-    'Harmoni tipografi anggun yang bikin tamu terpukau.',
-    'Kemewahan hangat untuk mengabarkan hari bahagiamu.',
-    'Nuansa romantis memikat yang meninggalkan kesan.',
+    'Desain sinematik eksklusif pemikat sejak awal.',
+    'Sentuhan elegan modern untuk hari bahagiamu.',
+    'Sambut tamu spesial dengan pesona berkelas.',
+    'Harmoni visual anggun yang memukau setiap tamu.',
+    'Kemewahan hangat pengabar janji suci abadi.',
+    'Nuansa romantis manis yang membekas di hati.',
   ];
   let hash = 0;
   for (let i = 0; i < id.length; i++) {
@@ -360,9 +368,9 @@ export async function GET(request) {
       return b.name.localeCompare(a.name);
     });
 
-    // Fetch HTML <title> & <meta> in parallel batches of 10
+    // Fetch HTML <title> & <meta> in parallel batches of 5 to avoid upstream throttling
     const metadataList = new Array(validFiles.length).fill({});
-    const batchSize = 10;
+    const batchSize = 5;
     for (let i = 0; i < validFiles.length; i += batchSize) {
       const slice = validFiles.slice(i, i + batchSize);
       const results = await Promise.all(

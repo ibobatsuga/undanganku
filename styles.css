@@ -796,7 +796,7 @@ select.modal-input-field {
 
 /* Single-Line Hook Description on Template Cards */
 .template-desc-one-line {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--color-dark-muted);
   margin: 0 0 18px 0;
   white-space: nowrap;
@@ -1308,8 +1308,9 @@ select.modal-input-field {
   }
 
   .gallery-search-box {
+    min-width: 0 !important;
     max-width: 100% !important;
-    width: 100% !important;
+    flex: 1 1 auto !important;
   }
 
   .tab-buttons-container {
