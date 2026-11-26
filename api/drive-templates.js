@@ -2,6 +2,12 @@ import { metric } from '@vercel/functions';
 
 const DEFAULT_FOLDER_ID = process.env.GOOGLE_DRIVE_FOLDER_ID || '1y5qoiODHZH3wP6JN4ZAZDu3J7Ruuq-sg';
 
+// Explicitly excluded duplicate/draft files from gallery display
+const EXCLUDED_FILE_IDS = new Set([
+  '1keHhcr28stAuuKcdr66me9F4AZvEWXQG', // Kania & Arga (V2)
+]);
+const EXCLUDED_FILE_PATTERNS = [/coastal-terracotta-v2\.html$/i];
+
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
@@ -346,8 +352,10 @@ export async function GET(request) {
     const origin = url.origin;
     const rawFiles = await fetchFolderRawEntries(folderId);
 
-    // Filter valid template items (.html, .htm, or image previews)
+    // Filter valid template items (.html, .htm, or image previews) and omit excluded items
     const validFiles = rawFiles.filter((f) => {
+      if (EXCLUDED_FILE_IDS.has(f.id)) return false;
+      if (EXCLUDED_FILE_PATTERNS.some((rx) => rx.test(f.name))) return false;
       const lower = f.name.toLowerCase();
       if (lower.startsWith('.')) return false;
       return (
@@ -399,6 +407,12 @@ export async function GET(request) {
         .replace(/^-+|-+$/g, '') || `template-${idx + 1}`;
 
       const thumbProxyUrl = `${origin}/api/drive-thumb?id=${encodeURIComponent(file.id)}`;
+      const coverPreviewUrl = isHtml
+        ? `${origin}/api/drive-preview?id=${encodeURIComponent(file.id)}&mode=cover`
+        : '';
+      const rawPreviewUrl = isHtml
+        ? `${origin}/api/drive-preview?id=${encodeURIComponent(file.id)}&raw=1`
+        : `${origin}/api/drive-thumb?id=${encodeURIComponent(file.id)}&sz=w1200`;
       const previewUrl = isHtml
         ? `${origin}/api/drive-preview?id=${encodeURIComponent(file.id)}`
         : `${origin}/api/drive-thumb?id=${encodeURIComponent(file.id)}&sz=w1200`;
@@ -416,6 +430,8 @@ export async function GET(request) {
         slug,
         thumbnailUrl: thumbProxyUrl,
         directThumbUrl: file.rawThumb || `https://drive.google.com/thumbnail?id=${encodeURIComponent(file.id)}&sz=w800`,
+        coverPreviewUrl,
+        rawPreviewUrl,
         previewUrl,
         driveViewUrl: `https://drive.google.com/file/d/${encodeURIComponent(file.id)}/view`,
       };

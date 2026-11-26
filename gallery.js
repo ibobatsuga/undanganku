@@ -3,10 +3,12 @@
 // ==========================================================================
 
 const FALLBACK_API_ORIGIN = 'https://undanganku-xi-six.vercel.app';
+const MOBILE_STAGE_WIDTH = 412;
 let allDriveTemplates = [];
 let activeTierFilter = 'all';
 let activeSearchQuery = '';
 let lastSyncTime = 0;
+let stageResizeObserver = null;
 
 function escapeHtmlSafe(str = '') {
   return String(str)
@@ -23,6 +25,42 @@ function getTierBadgeHtml(tier) {
   return '<span class="template-badge-premium">Premium</span>';
 }
 
+function scaleMobileStage(stageEl) {
+  if (!stageEl) return;
+  const iframe = stageEl.querySelector('.mobile-cover-iframe');
+  if (!iframe) return;
+  const w = stageEl.clientWidth;
+  if (w > 0) {
+    const scale = w / MOBILE_STAGE_WIDTH;
+    iframe.style.transform = `scale(${scale.toFixed(5)})`;
+  }
+}
+
+function observeAllMobileStages() {
+  if (!stageResizeObserver && typeof ResizeObserver !== 'undefined') {
+    stageResizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        scaleMobileStage(entry.target);
+      }
+    });
+  }
+  document.querySelectorAll('.gallery-image-container').forEach((el) => {
+    scaleMobileStage(el);
+    if (stageResizeObserver) stageResizeObserver.observe(el);
+  });
+}
+
+function handleCoverIframeLoad(iframeEl) {
+  if (!iframeEl) return;
+  iframeEl.classList.add('loaded');
+  const stage = iframeEl.closest('.gallery-image-container');
+  if (stage) {
+    scaleMobileStage(stage);
+    const shimmer = stage.querySelector('.mobile-cover-shimmer');
+    if (shimmer) shimmer.style.opacity = '0';
+  }
+}
+
 function openDrivePreviewModal(id) {
   const item = allDriveTemplates.find((t) => t.id === id);
   if (!item) return;
@@ -33,10 +71,13 @@ function openDrivePreviewModal(id) {
   const extLink = document.getElementById('simExternalLink');
   const loader = document.getElementById('simLoadingOverlay');
 
+  const simSrc = item.rawPreviewUrl || item.previewUrl;
+
   if (loader) loader.style.display = 'flex';
   if (titleEl) titleEl.textContent = `${item.title} — ${item.theme}`;
+  // External link uses mobile-shell wrapper so opening in full tab on desktop/tablet stays mobile-sized
   if (extLink) extLink.href = item.previewUrl;
-  if (frame) frame.src = item.previewUrl;
+  if (frame) frame.src = simSrc;
 
   if (modal) {
     modal.classList.add('open');
@@ -65,6 +106,10 @@ function renderGalleryCards() {
   const grid = document.getElementById('galleryGrid');
   const emptyBox = document.getElementById('galleryEmptyState');
   if (!grid) return;
+
+  if (stageResizeObserver) {
+    stageResizeObserver.disconnect();
+  }
 
   const q = activeSearchQuery.trim().toLowerCase();
   const filtered = allDriveTemplates.filter((item) => {
@@ -97,10 +142,25 @@ function renderGalleryCards() {
       const safeTier = escapeHtmlSafe(item.tier);
       const safeThumb = escapeHtmlSafe(item.thumbnailUrl);
       const safeDirect = escapeHtmlSafe(item.directThumbUrl || '');
+      const safeCoverUrl = escapeHtmlSafe(item.coverPreviewUrl || '');
 
-      return `
-        <article class="template-card glass-panel" data-tier="${safeTier}">
-          <div class="gallery-image-container">
+      const mediaHtml =
+        item.isHtml && safeCoverUrl
+          ? `
+            <div class="mobile-cover-shimmer skeleton-shimmer"></div>
+            <div class="mobile-cover-iframe-wrap">
+              <iframe
+                class="mobile-cover-iframe"
+                src="${safeCoverUrl}"
+                title="Preview Mobile ${safeTitle}"
+                loading="lazy"
+                tabindex="-1"
+                aria-hidden="true"
+                onload="handleCoverIframeLoad(this)"
+              ></iframe>
+            </div>
+          `
+          : `
             <img
               src="${safeThumb}"
               alt="Template ${safeTitle}"
@@ -108,7 +168,13 @@ function renderGalleryCards() {
               referrerpolicy="no-referrer"
               onerror="handleThumbError(this, '${safeDirect}')"
             >
-            <div style="position: absolute; top: 12px; left: 14px; right: 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; pointer-events: none;">
+          `;
+
+      return `
+        <article class="template-card glass-panel" data-tier="${safeTier}">
+          <div class="gallery-image-container" onclick="openDrivePreviewModal('${safeId}')" style="cursor: pointer;">
+            ${mediaHtml}
+            <div style="position: absolute; top: 12px; left: 14px; right: 14px; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 8px; pointer-events: none;">
               <span class="template-theme-chip">${safeTheme}</span>
               ${getTierBadgeHtml(item.tier)}
             </div>
@@ -125,6 +191,8 @@ function renderGalleryCards() {
       `;
     })
     .join('');
+
+  requestAnimationFrame(observeAllMobileStages);
 }
 
 function filterGallery(tier, btn) {
@@ -136,10 +204,14 @@ function filterGallery(tier, btn) {
   });
   if (btn) {
     btn.classList.add('active');
-    btn.style.background = '#0087EB';
-    btn.style.color = '#FFFFFF';
+    bLoadScaleHelper(btn);
   }
   renderGalleryCards();
+}
+
+function bLoadScaleHelper(btn) {
+  btn.style.background = '#0087EB';
+  btn.style.color = '#FFFFFF';
 }
 
 function handleGallerySearch(val) {
@@ -234,12 +306,10 @@ async function loadDriveTemplates(manualRefresh = false) {
   }
 }
 
-// Initial load on page ready
 document.addEventListener('DOMContentLoaded', () => {
   loadDriveTemplates(false);
 });
 
-// Automatically re-sync when user returns to tab (e.g., right after uploading a new template to Google Drive)
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible' && Date.now() - lastSyncTime > 20000) {
     loadDriveTemplates(false);
